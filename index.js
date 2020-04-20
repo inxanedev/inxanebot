@@ -248,7 +248,9 @@ client.on("message", async message => {
 				.addField("Restartowanie w toku...", "Zrobie drzemke i wracam, ok? Prosze nie idzcie sobie~! :(")
 				.setTimestamp();
 			message.channel.send(restartEmbed);
-			process.exit(0);
+			setTimeout(() => {
+				process.exit(0);
+			}, 3000);
 			return;
 		} else {
 			sendError(message.channel, "Co ty probujesz zrobic co!? Co ty sobie myslisz!");
