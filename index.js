@@ -228,13 +228,15 @@ client.on("message", async message => {
 		}
 		if (message.mentions.members.first().user.id == config.ownerID) {
 			var result = "70km";
+		} else if (message.mentions.members.first().user.id == "449612006811762689") {
+			var result = "Wait a second...";
 		} else {
-			var result = Math.floor(Math.random()*20) + "cm";
+			var result = Math.floor(Math.random()*20) + "cm!";
 		}
 		const penisEmbed = new Discord.RichEmbed()
 			.setColor(embedColor)
 			.setTitle("Skanowanie wielkości penisa zakończone!")
-			.addField(`Wielkość penisa użytkownika ${message.mentions.members.first().user.tag}:`, `${result}!`)
+			.addField(`Wielkość penisa użytkownika ${message.mentions.members.first().user.tag}:`, `${result}`)
 			.setTimestamp()
 		message.channel.send(penisEmbed);
 		return;
