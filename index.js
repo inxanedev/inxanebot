@@ -1,6 +1,7 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 const config = require("./config.json");
+const embedColor = "#0099ff";
 function isBetween(hour, minute, targetHour, targetMinuteX, targetMinuteY) {
 	if (hour == targetHour && minute >= targetMinuteX && minute < targetMinuteY) {
 		return true;
@@ -123,6 +124,7 @@ client.on("message", async message => {
 	if (message.content.indexOf(config.prefix) !== 0) return;
 	const args = message.content.slice(config.prefix.length).trim().split(' ');
 	const command = args.shift().toLowerCase();
+	console.log(`${message.author.tag} -> ${message}`);
 	if (command == "lekcja") {
 		var date = new Date();
 		var content = getLesson(date.getDay(), date.getHours(), date.getMinutes());
@@ -135,13 +137,13 @@ client.on("message", async message => {
 		return;
 	} else if (command === "help") {
 		const helpEmbed = new Discord.RichEmbed()
-			.setColor("#0099ff")
+			.setColor(embedColor)
 			.setTitle("Senpai-sama! C-chcesz zobaczyc moje komendy~?")
 			.addField("Wiadomosc wyslana!", "Zobacz swoje wiadomosci, wyslalem ci nudesy :hehe:")
 			.setTimestamp();
 		message.channel.send(helpEmbed);
 		const commandsEmbed = new Discord.RichEmbed()
-			.setColor("#0099ff")
+			.setColor(embedColor)
 			.setTitle("Ohayoo, senpai-sama desu~!")
 			.addField("Oto lista moich komend:", "\`+help\` - wyswietla komendy\n"
 				+ "\`+lekcja\` - wyswietla jaka jest teraz lekcja\n"
@@ -163,7 +165,7 @@ client.on("message", async message => {
 		}
 		var result = Math.round(Math.random() * parseInt(args[0]));
 		const luckEmbed = new Discord.RichEmbed()
-			.setColor("#0099ff")
+			.setColor(embedColor)
 			.setTitle(`Rolluje liczbe miedzy 0 a ${args[0]}...`)
 			.addField("Odpowiedź:", `Wyrollowana liczba: ${result}!`)
 			.setTimestamp();
@@ -175,7 +177,7 @@ client.on("message", async message => {
 			"Chyba tak, ale nie jestem pewien...", "Chyba nie, ale nie jestem pewien...", "Raczej nie!", "Zalezy..."];
 		var result = answers[num];
 		const ballEmbed = new Discord.RichEmbed()
-			.setColor("#0099ff")
+			.setColor(embedColor)
 			.setTitle("Magiczny 8ball odpowie ci na pytanie...")
 			.addField("Odpowiedź:", `Oto odpowiedź kuli: ${result}`)
 			.setTimestamp()
@@ -199,7 +201,7 @@ client.on("message", async message => {
 					   "https://i.imgur.com/sLwoifL.gif"];
 		var randomPat = patGifs[Math.round(Math.random() * patGifs.length)];
 		const patEmbed = new Discord.RichEmbed()
-			.setColor("#0099ff")
+			.setColor(embedColor)
 			.setTitle(`${message.author.tag} pats ${message.mentions.members.first().user.tag}`)
 			.setImage(randomPat)
 			.setTimestamp();
@@ -211,7 +213,7 @@ client.on("message", async message => {
 			return;
 		}
 		const avatarEmbed = new Discord.RichEmbed()
-			.setColor("#0099ff")
+			.setColor(embedColor)
 			.setTitle(`Prosze, senpai! Oto avatar uzytkownika ${message.mentions.members.first().user.tag}`)
 			.setImage(message.mentions.members.first().user.avatarURL)
 			.addField("Link", message.mentions.members.first().user.avatarURL)
@@ -220,7 +222,7 @@ client.on("message", async message => {
 		return;
 	}
 	const badCommand = new Discord.RichEmbed()
-		.setColor("#0099ff")
+		.setColor(embedColor)
 		.setTitle("Senpai... Sumimasen~!!!!!")
 		.addField("Nieznana komenda", "Przperaszam cię senpai, ale nie mam takiej komendy! :sad_face:");
 	message.channel.send(badCommand);
