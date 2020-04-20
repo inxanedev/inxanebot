@@ -237,12 +237,19 @@ client.on("message", async message => {
 			.setColor(embedColor)
 			.setTitle("Skanowanie wielkości penisa zakończone!")
 			.addField(`Wielkość penisa użytkownika ${message.mentions.members.first().user.tag}:`, `${result}`)
-			.setTimestamp()
+			.setTimestamp();
 		message.channel.send(penisEmbed);
 		return;
 	} else if (command === "restart") {
 		if (message.author.id == config.ownerID) {
+			const restartEmbed = new Discord.RichEmbed()
+				.setColor(embedColor)
+				.setTitle("Bravo six, going dark...")
+				.addField("Restartowanie w toku...", "Zrobie drzemke i wracam, ok? Prosze nie idzcie sobie~! :(")
+				.setTimestamp();
+			message.channel.send(restartEmbed);
 			process.exit(0);
+			return;
 		} else {
 			sendError(message.channel, "Co ty probujesz zrobic co!? Co ty sobie myslisz!");
 			return;
