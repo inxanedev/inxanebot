@@ -125,7 +125,7 @@ client.on("message", async message => {
 	if (message.content.indexOf(config.prefix) !== 0) return;
 	const args = message.content.slice(config.prefix.length).trim().split(' ');
 	const command = args.shift().toLowerCase();
-	console.log(`${message.author.tag} -> ${message}`);
+	// console.log(`${message.author.tag} -> ${message}`); //
 	if (command == "lekcja") {
 		var date = new Date();
 		var content = getLesson(date.getDay(), date.getHours(), date.getMinutes());
