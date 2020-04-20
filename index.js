@@ -240,6 +240,13 @@ client.on("message", async message => {
 			.setTimestamp()
 		message.channel.send(penisEmbed);
 		return;
+	} else if (command === "restart") {
+		if (message.author.id == config.ownerID) {
+			process.exit(0);
+		} else {
+			sendError(message.channel, "Co ty probujesz zrobic co!? Co ty sobie myslisz!");
+			return;
+		}
 	}
 	const badCommand = new Discord.RichEmbed()
 		.setColor(embedColor)
