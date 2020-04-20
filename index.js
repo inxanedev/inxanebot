@@ -185,10 +185,19 @@ client.on("message", async message => {
 			sendError(message.channel, "Musisz zapingować osobę!");
 			return;
 		}
+		var patGifs = ["https://thumbs.gfycat.com/SaltySpitefulIrishdraughthorse-small.gif",
+					   "https://thumbs.gfycat.com/LightOilyIraniangroundjay-size_restricted.gif",
+					   "https://i.pinimg.com/originals/2e/27/d5/2e27d5d124bc2a62ddeb5dc9e7a73dd8.gif",
+					   "https://gifimage.net/wp-content/uploads/2017/09/anime-head-pat-gif-4.gif",
+					   "https://i.imgur.com/UWbKpx8.gif",
+					   "https://media.giphy.com/media/3o84TQvigRdBFynQWs/giphy.gif",
+					   "https://media.giphy.com/media/109ltuoSQT212w/giphy.gif",
+					   ];
+		var randomPat = patGifs[Math.round(Math.random() * patGifs.length)];
 		const patEmbed = new Discord.RichEmbed()
 			.setColor("#0099ff")
 			.setTitle(`${message.author.tag} pats ${message.mentions.members.first().user.tag}`)
-			.setImage("https://thumbs.gfycat.com/LightOilyIraniangroundjay-size_restricted.gif")
+			.setImage(randomPat)
 			.setTimestamp();
 		message.channel.send(patEmbed);
 		return;
