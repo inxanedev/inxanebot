@@ -150,7 +150,8 @@ client.on("message", async message => {
 				+ "\`+roll <liczba>\` - losuje liczbe miedzy 0 a <liczba>\n"
 				+ "\`+8ball\` - symulacja kuli 8ball, odpowie na pytanie\n"
 				+ "\`+pat @osoba\` - :anime_klep:\n"
-				+ "\`+avatar @osoba\` - link do avataru osoby")
+				+ "\`+avatar @osoba\` - link do avataru osoby\n"
+				+ "\`+penis @osoba\` - pokazuje wielkosc penisa @osoby")
 			.setTimestamp();
 		message.author.send(commandsEmbed);
 		return;
@@ -219,6 +220,23 @@ client.on("message", async message => {
 			.addField("Link", message.mentions.members.first().user.avatarURL)
 			.setTimestamp()
 		message.channel.send(avatarEmbed);
+		return;
+	} else if (command === "penis") {
+		if (message.mentions.members.first() == undefined) {
+			sendError(message.channel, "Musisz zapingować osobę!");
+			return;
+		}
+		if (message.mentions.members.first().user.id == config.ownerID) {
+			var result = "70km";
+		} else {
+			var result = Math.floor(Math.random()*20) + "cm";
+		}
+		const penisEmbed = new Discord.RichEmbed()
+			.setColor(embedColor)
+			.setTitle("Skanowanie wielkości penisa zakończone!")
+			.addField(`Wielkość penisa użytkownika ${message.mentions.members.first().user.tag}:`, `${result}!`)
+			.setTimestamp()
+		message.channel.send(penisEmbed);
 		return;
 	}
 	const badCommand = new Discord.RichEmbed()
