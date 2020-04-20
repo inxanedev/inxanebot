@@ -110,6 +110,14 @@ client.on("ready", () => {
 	console.log("Bot has started!");
 	client.user.setActivity(`GURZEJA PENIS (PREFIX +)`);
 });
+function sendError(channel, errorMessage) {
+	const errorEmbed = new Discord.RichEmbed()
+		.setColor("#ff0000")
+		.setTitle("Hej! Cos tu nie gra!")
+		.addField("Error", errorMessage)
+		.setTimestamp();
+	channel.send(errorEmbed);
+}
 client.on("message", async message => {
 	if (message.author.bot) return;
 	if (message.content.indexOf(config.prefix) !== 0) return;
@@ -138,27 +146,18 @@ client.on("message", async message => {
 			.addField("Oto lista moich komend:", "\`+help\` - wyswietla komendy\n"
 				+ "\`+lekcja\` - wyswietla jaka jest teraz lekcja\n"
 				+ "\`+roll <liczba>\` - losuje liczbe miedzy 0 a <liczba>\n"
-				+ "\`+8ball\` - symulacja kuli 8ball, odpowie na pytanie")
+				+ "\`+8ball\` - symulacja kuli 8ball, odpowie na pytanie\n"
+				+ "\`+pat @osoba\` - :anime_klep:")
 			.setTimestamp();
 		message.author.send(commandsEmbed);
 		return;
 	} else if (command === "roll") {
 		if (args.length < 1) {
-			const errorEmbed = new Discord.RichEmbed()
-				.setColor("#ff0000")
-				.setTitle("Hej! Cos tu nie gra!")
-				.addField("Error", "Hmm, musisz podac maksymalna liczbe!")
-				.setTimestamp();
-			message.channel.send(errorEmbed);
+			sendError(message.channel, "Hmm, musisz podac maksymalna liczbe!");
 			return;
 		}
 		if (!(parseInt(args[0]) > 0 && parseInt(args[0]) <= 1000000)) {
-			const errorEmbed = new Discord.RichEmbed()
-				.setColor("#ff0000")
-				.setTitle("Hej! Cos tu nie gra!")
-				.addField("Error", "Hmm, wpisz poprawna liczbe pomiedzy 1 a milion!")
-				.setTimestamp();
-			message.channel.send(errorEmbed);
+			sendError(message.channel, "Hmm, wpisz poprawna liczbe pomiedzy 1 a milion!");
 			return;
 		}
 		var result = Math.round(Math.random() * parseInt(args[0]));
@@ -180,6 +179,18 @@ client.on("message", async message => {
 			.addField("Odpowiedź:", `Oto odpowiedź kuli: ${result}`)
 			.setTimestamp()
 		message.channel.send(ballEmbed);
+		return;
+	} else if (command === "pat") {
+		if (message.mentions.members.first() == undefined) {
+			sendError(message.channel, "Musisz zapingować osobę!");
+			return;
+		}
+		const patEmbed = new Discord.RichEmbed()
+			.setColor("#0099ff")
+			.setTitle(`${message.author.tag} pats ${message.mentions.members.first().user.tag}`)
+			.setImage("https://thumbs.gfycat.com/LightOilyIraniangroundjay-size_restricted.gif")
+			.setTimestamp();
+		message.channel.send(patEmbed);
 		return;
 	}
 	const badCommand = new Discord.RichEmbed()
