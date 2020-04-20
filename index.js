@@ -1,3 +1,4 @@
+require("dotenv").config();
 const Discord = require("discord.js");
 const client = new Discord.Client();
 const config = require("./config.json");
@@ -264,4 +265,4 @@ client.on("message", async message => {
 	message.channel.send(badCommand);
 	return;
 });
-client.login(process.env.inxanebottoken);
+client.login(process.env.BOT_TOKEN);

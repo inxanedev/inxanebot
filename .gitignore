@@ -104,3 +104,4 @@ dist
 .tern-port
 # runforever.bat
 runforever.bat
+.env
