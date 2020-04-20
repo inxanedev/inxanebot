@@ -121,7 +121,7 @@ function sendError(channel, errorMessage) {
 client.on("message", async message => {
 	if (message.author.bot) return;
 	if (message.content.indexOf(config.prefix) !== 0) return;
-	const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
+	const args = message.content.slice(config.prefix.length).trim().split(' ');
 	const command = args.shift().toLowerCase();
 	if (command == "lekcja") {
 		var date = new Date();
@@ -147,7 +147,8 @@ client.on("message", async message => {
 				+ "\`+lekcja\` - wyswietla jaka jest teraz lekcja\n"
 				+ "\`+roll <liczba>\` - losuje liczbe miedzy 0 a <liczba>\n"
 				+ "\`+8ball\` - symulacja kuli 8ball, odpowie na pytanie\n"
-				+ "\`+pat @osoba\` - :anime_klep:")
+				+ "\`+pat @osoba\` - :anime_klep:\n"
+				+ "\`+avatar @osoba\` - link do avataru osoby")
 			.setTimestamp();
 		message.author.send(commandsEmbed);
 		return;
@@ -192,7 +193,10 @@ client.on("message", async message => {
 					   "https://i.imgur.com/UWbKpx8.gif",
 					   "https://media.giphy.com/media/3o84TQvigRdBFynQWs/giphy.gif",
 					   "https://media.giphy.com/media/109ltuoSQT212w/giphy.gif",
-					   ];
+					   "https://i.imgur.com/fp9XJZO.gif",
+					   "https://media1.tenor.com/images/291ea37382e1d6cd33349c50a398b6b9/tenor.gif?itemid=10204936",
+					   "https://i.imgur.com/bDMMk0L.gif",
+					   "https://i.imgur.com/sLwoifL.gif"];
 		var randomPat = patGifs[Math.round(Math.random() * patGifs.length)];
 		const patEmbed = new Discord.RichEmbed()
 			.setColor("#0099ff")
@@ -200,6 +204,19 @@ client.on("message", async message => {
 			.setImage(randomPat)
 			.setTimestamp();
 		message.channel.send(patEmbed);
+		return;
+	} else if (command === "avatar") {
+		if (message.mentions.members.first() == undefined) {
+			sendError(message.channel, "Musisz zapingować osobę!");
+			return;
+		}
+		const avatarEmbed = new Discord.RichEmbed()
+			.setColor("#0099ff")
+			.setTitle(`Prosze, senpai! Oto avatar uzytkownika ${message.mentions.members.first().user.tag}`)
+			.setImage(message.mentions.members.first().user.avatarURL)
+			.addField("Link", message.mentions.members.first().user.avatarURL)
+			.setTimestamp()
+		message.channel.send(avatarEmbed);
 		return;
 	}
 	const badCommand = new Discord.RichEmbed()
