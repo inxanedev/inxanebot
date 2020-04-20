@@ -201,7 +201,7 @@ client.on("message", async message => {
 					   "https://media1.tenor.com/images/291ea37382e1d6cd33349c50a398b6b9/tenor.gif?itemid=10204936",
 					   "https://i.imgur.com/bDMMk0L.gif",
 					   "https://i.imgur.com/sLwoifL.gif"];
-		var randomPat = patGifs[Math.round(Math.random() * patGifs.length)];
+		var randomPat = patGifs[Math.round(Math.random() * (patGifs.length-1))];
 		const patEmbed = new Discord.RichEmbed()
 			.setColor(embedColor)
 			.setTitle(`${message.author.tag} pats ${message.mentions.members.first().user.tag}`)
