@@ -140,7 +140,7 @@ client.on("message", async message => {
 		const helpEmbed = new Discord.RichEmbed()
 			.setColor(embedColor)
 			.setTitle("Senpai-sama! C-chcesz zobaczyc moje komendy~?")
-			.addField("Wiadomosc wyslana!", "Zobacz swoje wiadomosci, wyslalem ci nudesy :hehe:")
+			.addField("Wiadomosc wyslana!", "Zobacz swoje wiadomosci, wyslalam ci nudesy :hehe:")
 			.setTimestamp();
 		message.channel.send(helpEmbed);
 		const commandsEmbed = new Discord.RichEmbed()
@@ -176,7 +176,7 @@ client.on("message", async message => {
 	} else if (command === "8ball") {
 		var num = Math.round(Math.random() * 7);
 		var answers = ["Raczej tak!", "Napewno nie!", "Napewno tak!", "Nie mam zielonego pojecia!",
-			"Chyba tak, ale nie jestem pewien...", "Chyba nie, ale nie jestem pewien...", "Raczej nie!", "Zalezy..."];
+			"Chyba tak, ale nie jestem pewna...", "Chyba nie, ale nie jestem pewna...", "Raczej nie!", "Zalezy..."];
 		var result = answers[num];
 		const ballEmbed = new Discord.RichEmbed()
 			.setColor(embedColor)
