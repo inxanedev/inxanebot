@@ -109,7 +109,7 @@ function getLesson(day, hour, minute) {
 }
 client.on("ready", () => {
 	console.log("Bot has started!");
-	client.user.setActivity(`GURZEJA PENIS (PREFIX +)`);
+	client.user.setActivity(config.status);
 });
 function sendError(channel, errorMessage) {
 	const errorEmbed = new Discord.RichEmbed()
@@ -264,4 +264,4 @@ client.on("message", async message => {
 	message.channel.send(badCommand);
 	return;
 });
-client.login(config.token);
+client.login(process.env.inxanebottoken);
