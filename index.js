@@ -33,75 +33,75 @@ function getLesson(day, hour, minute) {
 			return "Przerwe lub skonczyly sie lekcje!";
 			break;
 		case 2:
-			if (isBetween(hour, minute, 8, 0, 25)) {
+			if (isBetween(hour, minute, 8, 30, 55)) {
 				return "J. Polski";
-			} else if (isBetween(hour, minute, 8, 30, 55)) {
-				return "Geografie";
 			} else if (isBetween(hour, minute, 9, 0, 25)) {
-				return "Plastyke";
+				return "Geografie";
 			} else if (isBetween(hour, minute, 9, 30, 55)) {
-				return "WF";
+				return "Plastyke";
 			} else if (isBetween(hour, minute, 10, 0, 25)) {
-				return "Fizyke";
+				return "WF";
 			} else if (isBetween(hour, minute, 10, 30, 55)) {
-				return "Wychowawcza";
+				return "Fizyke";
 			} else if (isBetween(hour, minute, 11, 0, 25)) {
-				return "Chemie";
+				return "Wychowawcza";
 			} else if (isBetween(hour, minute, 11, 30, 55)) {
+				return "Chemie";
+			} else if (isBetween(hour, minute, 12, 0, 25)) {
 				return "Religie";
 			}
 			return "Przerwe lub skonczyly sie lekcje!";
 			break;
 		case 3:
-			if (isBetween(hour, minute, 8, 0, 25)) {
+			if (isBetween(hour, minute, 8, 30, 55)) {
 				return "Informatyke";
-			} else if (isBetween(hour, minute, 8, 30, 55)) {
-				return "Matematyke";
 			} else if (isBetween(hour, minute, 9, 0, 25)) {
 				return "Matematyke";
 			} else if (isBetween(hour, minute, 9, 30, 55)) {
-				return "J. Angielski z Moronem";
+				return "Matematyke";
 			} else if (isBetween(hour, minute, 10, 0, 25)) {
-				return "EDB";
+				return "J. Angielski z Moronem";
 			} else if (isBetween(hour, minute, 10, 30, 55)) {
-				return "J. Polski";
+				return "EDB";
 			} else if (isBetween(hour, minute, 11, 0, 25)) {
 				return "J. Polski";
 			} else if (isBetween(hour, minute, 11, 30, 55)) {
+				return "J. Polski";
+			} else if (isBetween(hour, minute, 12, 0, 25)) {
 				return "Biologie";
 			}
 			return "Przerwe lub skonczyly sie lekcje!";
 			break;
 		case 4:
-			if (isBetween(hour, minute, 8, 0, 25)) {
-				return "Bazy danych";
-			} else if (isBetween(hour, minute, 8, 30, 55)) {
+			if (isBetween(hour, minute, 8, 30, 55)) {
 				return "Bazy danych";
 			} else if (isBetween(hour, minute, 9, 0, 25)) {
 				return "Bazy danych";
 			} else if (isBetween(hour, minute, 9, 30, 55)) {
-				return "J. Niemiecki";
+				return "Bazy danych";
 			} else if (isBetween(hour, minute, 10, 0, 25)) {
 				return "J. Niemiecki";
 			} else if (isBetween(hour, minute, 10, 30, 55)) {
-				return "Historie";
+				return "J. Niemiecki";
 			} else if (isBetween(hour, minute, 11, 0, 25)) {
-				return "WF (basen) (XD)";
+				return "Historie";
 			} else if (isBetween(hour, minute, 11, 30, 55)) {
+				return "WF (basen) (XD)";
+			} else if (isBetween(hour, minute, 12, 0, 25)) {
 				return "WF (basen) (XD)";
 			}
 			return "Przerwe lub skonczyly sie lekcje!";
 			break;
 		case 5:
-			if (isBetween(hour, minute, 8, 0, 25)) {
-				return "HTML";
-			} else if (isBetween(hour, minute, 8, 30, 55)) {
+			if (isBetween(hour, minute, 8, 30, 55)) {
 				return "HTML";
 			} else if (isBetween(hour, minute, 9, 0, 25)) {
 				return "HTML";
 			} else if (isBetween(hour, minute, 9, 30, 55)) {
-				return "Historie";
+				return "HTML";
 			} else if (isBetween(hour, minute, 10, 0, 25)) {
+				return "Historie";
+			} else if (isBetween(hour, minute, 10, 30, 55)) {
 				return "J. Angielski";
 			}
 			return "Przerwe lub skonczyly sie lekcje!";
