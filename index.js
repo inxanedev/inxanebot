@@ -28,7 +28,7 @@ function getLesson(day, hour, minute) {
 			else if (isBetween(hour, minute, 11, 0, 25))  { return "BHP|Matematyka"; }
 			else if (isBetween(hour, minute, 11, 26, 30)) { return "Przerwe!|Matematyka"; }
 			else if (isBetween(hour, minute, 11, 30, 55)) { return "Matematyke|Koniec"; }
-			return "Skonczyly sie juz dzisiaj lekcje!";
+			return "Skonczyly sie juz dzisiaj lekcje!|Nie ma";
 			break;
 		case 2:
 			if (isBetween(hour, minute, 8, 30, 55))       { return "J. Polski|Geografia"; }
@@ -46,7 +46,7 @@ function getLesson(day, hour, minute) {
 			else if (isBetween(hour, minute, 11, 30, 55)) { return "Chemie|Religia"; }
 			else if (isBetween(hour, minute, 11, 56, 60)) { return "Przerwe!|Religia"; }
 			else if (isBetween(hour, minute, 12, 0, 25))  { return "Religie|Koniec"; }
-			return "Skonczyly sie juz dzisiaj lekcje!";
+			return "Skonczyly sie juz dzisiaj lekcje!|Nie ma";
 			break;
 		case 3:
 			if (isBetween(hour, minute, 8, 30, 55))       { return "Informatyke|Matematyka"; }
@@ -64,7 +64,7 @@ function getLesson(day, hour, minute) {
 			else if (isBetween(hour, minute, 11, 30, 55)) { return "J. Polski|Biologia"; }
 			else if (isBetween(hour, minute, 11, 56, 60)) { return "Przerwe!|Biologia"; }
 			else if (isBetween(hour, minute, 12, 0, 25))  { return "Biologie|Koniec"; }
-			return "Skonczyly sie juz dzisiaj lekcje!";
+			return "Skonczyly sie juz dzisiaj lekcje!|Nie ma";
 			break;
 		case 4:
 			if (isBetween(hour, minute, 8, 30, 55))       { return "Bazy danych|Bazy danych"; }
@@ -82,7 +82,7 @@ function getLesson(day, hour, minute) {
 			else if (isBetween(hour, minute, 11, 30, 55)) { return "WF (basen) (XD)|basen xDD"; }
 			else if (isBetween(hour, minute, 11, 56, 60)) { return "Przerwe!|basen XDD"; }
 			else if (isBetween(hour, minute, 12, 0, 25))  { return "WF (basen) (XD)|Koniec"; }
-			return "Skonczyly sie juz dzisiaj lekcje!";
+			return "Skonczyly sie juz dzisiaj lekcje!|Nie ma";
 			break;
 		case 5:
 			if (isBetween(hour, minute, 8, 30, 55)) 	  { return "HTML|HTML"; }
@@ -94,7 +94,7 @@ function getLesson(day, hour, minute) {
 			else if (isBetween(hour, minute, 10, 0, 25))  { return "Historie|J. Angielski"; }
 			else if (isBetween(hour, minute, 10, 26, 30)) { return "Przerwe!|J. Angielski"; }
 			else if (isBetween(hour, minute, 10, 30, 55)) { return "J. Angielski|Koniec"; }
-			return "Skonczyly sie juz dzisiaj lekcje!";
+			return "Skonczyly sie juz dzisiaj lekcje!|Nie ma";
 			break;
 	}
 }
@@ -131,7 +131,7 @@ client.on("message", async message => {
 		const helpEmbed = new Discord.RichEmbed()
 			.setColor(embedColor)
 			.setTitle("Senpai-sama! C-chcesz zobaczyc moje komendy~?")
-			.addField("Wiadomosc wyslana!", "Zobacz swoje wiadomosci, wyslalam ci nudesy :hehe:")
+			.addField("Wiadomosc wyslana!", "Zobacz swoje wiadomosci, wyslalam ci je uwu")
 			.setTimestamp();
 		message.channel.send(helpEmbed);
 		const commandsEmbed = new Discord.RichEmbed()
