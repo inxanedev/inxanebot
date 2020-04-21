@@ -115,7 +115,7 @@ client.on("message", async message => {
 	if (message.content.indexOf(config.prefix) !== 0) return;
 	const args = message.content.slice(config.prefix.length).trim().split(' ');
 	const command = args.shift().toLowerCase();
-	// console.log(`${message.author.tag} -> ${message}`); //
+	console.log(`${message.author.tag} -> ${message}`); //
 	if (command == "lekcja") {
 		var date = new Date();
 		var content = getLesson(date.getDay(), date.getHours(), date.getMinutes());
@@ -217,12 +217,19 @@ client.on("message", async message => {
 			sendError(message.channel, "Musisz zapingować osobę!");
 			return;
 		}
-		if (message.mentions.members.first().user.id == config.ownerID) {
-			var result = "70km";
-		} else if (message.mentions.members.first().user.id == "449612006811762689") {
-			var result = "Wait a second...";
-		} else {
-			var result = Math.floor(Math.random()*20) + "cm!";
+		switch (message.mentions.members.first().user.id) {
+			case config.ownerID:
+				var result = "70km";
+				break;
+			case config.people.karolina:
+				var result = "Penis nie znaleziony. Spróbuj ponownie!";
+				break;
+			case config.botID:
+				var result = "HEJ! TO JEST NIEPOPRAWNE! ZBOCZENIEC! HENTAI HENTAI! BAKA!";
+				break;
+			default:
+				var result = Math.floor(Math.random()*20) + "cm!";
+				break;
 		}
 		const penisEmbed = new Discord.RichEmbed()
 			.setColor(embedColor)
