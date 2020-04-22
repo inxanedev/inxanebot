@@ -2,7 +2,7 @@ require("dotenv").config();
 const Discord = require("discord.js");
 const client = new Discord.Client();
 const config = require("./config.json");
-const embedColor = "#0099ff";
+const embedColor = config.embedColor;
 function isBetween(hour, minute, targetHour, targetMinuteX, targetMinuteY) {
 	if (hour == targetHour && minute >= targetMinuteX && minute < targetMinuteY) {
 		return true;
