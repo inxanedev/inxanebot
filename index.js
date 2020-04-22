@@ -107,7 +107,7 @@ function sendError(channel, errorMessage) {
 		.setColor("#ff0000")
 		.setTitle("Hej! Cos tu nie gra!")
 		.addField("Error", errorMessage)
-		.setTimestamp();
+		.setFooter("https://github.com/inxaneninja/inxanebot");
 	channel.send(errorEmbed);
 }
 client.on("message", async message => {
@@ -124,7 +124,7 @@ client.on("message", async message => {
 			.setTitle("Jaka jest lekcja?")
 			.addField("Mamy teraz:", result[0])
 			.addField("Nastepna lekcja:", result[1])
-			.setTimestamp();
+			.setFooter("https://github.com/inxaneninja/inxanebot");
 		message.channel.send(lekcjaEmbed);
 		return;
 	} else if (command === "help") {
@@ -132,7 +132,7 @@ client.on("message", async message => {
 			.setColor(embedColor)
 			.setTitle("Senpai-sama! C-chcesz zobaczyc moje komendy~?")
 			.addField("Wiadomosc wyslana!", "Zobacz swoje wiadomosci, wyslalam ci je uwu")
-			.setTimestamp();
+			.setFooter("https://github.com/inxaneninja/inxanebot");
 		message.channel.send(helpEmbed);
 		const commandsEmbed = new Discord.RichEmbed()
 			.setColor(embedColor)
@@ -144,7 +144,7 @@ client.on("message", async message => {
 				+ "\`+pat @osoba\` - :anime_klep:\n"
 				+ "\`+avatar @osoba\` - link do avataru osoby\n"
 				+ "\`+penis @osoba\` - pokazuje wielkosc penisa @osoby")
-			.setTimestamp();
+			.setFooter("https://github.com/inxaneninja/inxanebot");
 		message.author.send(commandsEmbed);
 		return;
 	} else if (command === "roll") {
@@ -161,7 +161,7 @@ client.on("message", async message => {
 			.setColor(embedColor)
 			.setTitle(`Rolluje liczbe miedzy 0 a ${args[0]}...`)
 			.addField("Odpowiedź:", `Wyrollowana liczba: ${result}!`)
-			.setTimestamp();
+			.setFooter("https://github.com/inxaneninja/inxanebot");
 		message.channel.send(luckEmbed);
 		return;
 	} else if (command === "8ball") {
@@ -173,7 +173,7 @@ client.on("message", async message => {
 			.setColor(embedColor)
 			.setTitle("Magiczny 8ball odpowie ci na pytanie...")
 			.addField("Odpowiedź:", `Oto odpowiedź kuli: ${result}`)
-			.setTimestamp()
+			.setFooter("https://github.com/inxaneninja/inxanebot")
 		message.channel.send(ballEmbed);
 		return;
 	} else if (command === "pat") {
@@ -197,7 +197,7 @@ client.on("message", async message => {
 			.setColor(embedColor)
 			.setTitle(`${message.author.tag} pats ${message.mentions.members.first().user.tag}`)
 			.setImage(randomPat)
-			.setTimestamp();
+			.setFooter("https://github.com/inxaneninja/inxanebot");
 		message.channel.send(patEmbed);
 		return;
 	} else if (command === "avatar") {
@@ -210,7 +210,7 @@ client.on("message", async message => {
 			.setTitle(`Prosze, senpai! Oto avatar uzytkownika ${message.mentions.members.first().user.tag}`)
 			.setImage(message.mentions.members.first().user.avatarURL)
 			.addField("Link", message.mentions.members.first().user.avatarURL)
-			.setTimestamp()
+			.setFooter("https://github.com/inxaneninja/inxanebot");
 		message.channel.send(avatarEmbed);
 		return;
 	} else if (command === "penis") {
@@ -236,7 +236,7 @@ client.on("message", async message => {
 			.setColor(embedColor)
 			.setTitle("Skanowanie wielkości penisa zakończone!")
 			.addField(`Wielkość penisa użytkownika ${message.mentions.members.first().user.tag}:`, `${result}`)
-			.setTimestamp();
+			.setFooter("https://github.com/inxaneninja/inxanebot");
 		message.channel.send(penisEmbed);
 		return;
 	} else if (command === "restart") {
@@ -245,7 +245,7 @@ client.on("message", async message => {
 				.setColor(embedColor)
 				.setTitle("Bravo six, going dark...")
 				.addField("Restartowanie w toku...", "Zrobie drzemke i wracam, ok? Prosze nie idzcie sobie~! :(")
-				.setTimestamp();
+				.setFooter("https://github.com/inxaneninja/inxanebot");
 			message.channel.send(restartEmbed);
 			setTimeout(() => {
 				process.exit(0);
