@@ -142,6 +142,11 @@ client.on("message", async message => {
 				+ "\`+roll <liczba>\` - losuje liczbe miedzy 0 a <liczba>\n"
 				+ "\`+8ball\` - symulacja kuli 8ball, odpowie na pytanie\n"
 				+ "\`+pat @osoba\` - :anime_klep:\n"
+				+ "\`+poke @osoba\` - :anime_poke:\n"
+				+ "\`+smug\` - :anime_smug:\n"
+				+ "\`+hug @osoba\` - :anime_hug:\n"
+				+ "\`+kiss @osoba\` - :anime_kiss:\n"
+				+ "\`+kick @osoba\` - :anime_kick:\n"
 				+ "\`+avatar @osoba\` - link do avataru osoby\n"
 				+ "\`+penis @osoba\` - pokazuje wielkosc penisa @osoby")
 			.setFooter("https://github.com/inxaneninja/inxanebot");
