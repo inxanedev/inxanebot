@@ -255,6 +255,117 @@ client.on("message", async message => {
 			sendError(message.channel, "Co ty probujesz zrobic co!? Co ty sobie myslisz!");
 			return;
 		}
+	} else if (command === "kiss") {
+		if (message.mentions.members.first() == undefined) {
+			sendError("Musisz zapingować osobę!");
+			return;
+		}
+		var kissGifs = ["https://giphy.com/gifs/sword-art-online-anime-kiss-nyGFcsP0kAobm",
+						"https://giphy.com/gifs/love-kiss-bm2O3nXTcKJeU",
+						"https://giphy.com/gifs/anime-couple-11rWoZNpAKw8w",
+						"https://giphy.com/gifs/love-kiss-CzCi6itPr3yBa",
+						"https://giphy.com/gifs/kiss-guilty-crown-XZYxeRlIEdmKI",
+						"https://tenor.com/view/golden-time-anime-kiss-couple-lovers-gif-6155670",
+						"https://tenor.com/view/anime-ano-natsu-de-matteru-gif-9670722",
+						"https://tenor.com/view/love-anime-kiss-nuzzle-cute-gif-12873196",
+						"https://tenor.com/view/anime-zero-kiss-couple-lover-gif-12925177",
+						"https://tenor.com/view/cheek-kiss-anime-cute-gif-15150255"];
+		var randomKiss = kissGifs[Math.round(Math.random() * (kissGifs.length-1))];
+		const kissEmbed = new Discord.RichEmbed()
+			.setColor(embedColor)
+			.setTitle(`${message.author.tag} kisses ${message.mentions.members.first().user.tag}`)
+			.setImage(randomKiss)
+			.setFooter("https://github.com/inxaneninja/inxanebot");
+		message.channel.send(kissEmbed);
+		return;
+	} else if (command === "hug") {
+		if (message.mentions.members.first() == undefined) {
+			sendError("Musisz zapingować osobę!");
+			return;
+		}
+		var hugGifs = [ "https://tenor.com/view/watashinitenshigamaiorita-anime-hug-wataten-gif-13366388",
+						"https://tenor.com/view/anime-hug-its-ok-gif-13041472",
+						"https://tenor.com/view/seraph-love-hug-hugging-anime-gif-4900166",
+						"https://tenor.com/view/anime-hug-love-hug-gif-13925386",
+						"https://tenor.com/view/anime-hug-sweet-love-gif-14246498",
+						"https://giphy.com/gifs/animated-girls-C4gbG94zAjyYE",
+						"https://giphy.com/gifs/hug-intense-noucome-pXQhWw2oHoPIs",
+						"https://giphy.com/gifs/hug-sleep-sleeping-BXrwTdoho6hkQ",
+						"https://giphy.com/gifs/love-sad-qscdhWs5o3yb6",
+						"https://giphy.com/gifs/PHZ7v9tfQu0o0"];
+		var randomHug = hugGifs[Math.round(Math.random() * (hugGifs.length-1))];
+		const hugEmbed = new Discord.RichEmbed()
+			.setColor(embedColor)
+			.setTitle(`${message.author.tag} hugs ${message.mentions.members.first().user.tag}`)
+			.setImage(randomHug)
+			.setFooter("https://github.com/inxaneninja/inxanebot");
+		message.channel.send(hugEmbed);
+		return;
+	} else if (command === "kick") {
+		if (message.mentions.members.first() == undefined) {
+			sendError("Musisz zapingować osobę!");
+			return;
+		}
+		var kickGifs = ["https://tenor.com/view/kick-funny-anime-fly-cartoon-gif-4922649",
+						"https://tenor.com/view/gajeel-lucy-fairy-tail-anime-kick-gif-16419384",
+						"https://tenor.com/view/anime-kick-fight-gif-15460532",
+						"https://tenor.com/view/sasuke-uchiha-kakashi-hatake-fight-anime-kick-gif-16767285",
+						"https://tenor.com/view/gintama-anime-kick-gif-10584236https://tenor.com/view/gintama-anime-kick-gif-10584236",
+						"https://tenor.com/view/anime-kick-naruto-gif-12822445",
+						"https://tenor.com/view/kick-anime-kick-balls-explode-crushed-gif-15974215",
+						"https://tenor.com/view/pandora-hearts-anime-kick-mad-angry-gif-5738223",
+						"https://tenor.com/view/jormungand-anime-koko-hekmatyar-kick-gif-15958808",
+						"https://tenor.com/view/maria-osawa-canaan-428the-animation-428shibuya-scramble-alphard-al-sheya-gif-16939795"];
+		var randomKick = kickGifs[Math.round(Math.random() * (kickGifs.length-1))];
+		const kickEmbed = new Discord.RichEmbed()
+			.setColor(embedColor)
+			.setTitle(`${message.author.tag} kicks ${message.mentions.members.first().user.tag}`)
+			.setImage(randomKick)
+			.setFooter("https://github.com/inxaneninja/inxanebot");
+		message.channel.send(kickEmbed);
+		return;
+	} else if (command === "poke") {
+		if (message.mentions.members.first() == undefined) {
+			sendError("Musisz zapingować osobę!");
+			return;
+		}
+		var pokeGifs = ["https://tenor.com/view/anime-poke-wake-up-gif-12396068",
+						"https://tenor.com/view/bite-anime-poke-gif-12045584",
+						"https://tenor.com/view/anime-poke-kobayashi-dragon-maid-gif-14346763",
+						"https://tenor.com/view/anime-poke-poke-face-gif-12011027",
+						"https://tenor.com/view/boop-nose-anime-gif-6287077",
+						"https://tenor.com/view/fight-anime-poke-ouch-gif-11956062",
+						"https://tenor.com/view/testament-of-sister-new-devil-shinmai-maou-no-testament-basara-anime-poke-gif-13054528",
+						"https://tenor.com/view/poke-annoying-gif-8488169",
+						"https://tenor.com/view/poke-trick-hi-hello-annoy-gif-14134415",
+						"https://tenor.com/view/anime-fuko-ibuki-clannad-hey-you-gif-14835795"];
+		var randomPoke = pokeGifs[Math.round(Math.random() * (pokeGifs.length-1))];
+		const pokeEmbed = new Discord.RichEmbed()
+			.setColor(embedColor)
+			.setTitle(`${message.author.tag} pokes ${message.mentions.members.first().user.tag}`)
+			.setImage(randomPoke)
+			.setFooter("https://github.com/inxaneninja/inxanebot");
+		message.channel.send(randomPoke);
+		return;
+	} else if (command === "poke") {
+		var smugGifs = ["https://tenor.com/view/smug-nikaido-saki-zombie-land-saga-nikaido-anime-gif-14210719",
+						"https://tenor.com/view/wataten-cute-smug-anime-gif-13940350",
+						"https://tenor.com/view/satania-anime-gif-10120660",
+						"https://tenor.com/view/smug-anime-face-blushing-gif-14495461",
+						"https://tenor.com/view/smug-anime-face-gif-13598614",
+						"https://tenor.com/view/anime-konosuba-smirk-aqua-gif-13820031",
+						"https://tenor.com/view/haikyuu-kei-smug-smirk-huh-gif-4990978",
+						"https://tenor.com/view/smug-overlord-anime-sinister-smile-gif-14770509",
+						"https://tenor.com/view/shrug-smug-smile-miss-kobayashi-kobayashisan-chi-no-maid-dragon-gif-13119038",
+						"https://tenor.com/view/anime-eyebrow-looky-whoa-mama-gif-10358099"];
+		var randomSmug = smugGifs[Math.round(Math.random() * (smugGifs.length-1))];
+		const smugEmbed = new Discord.RichEmbed()
+			.setColor(embedColor)
+			.setTitle(`${message.author.tag} smugs *-0`)
+			.setImage(randomSmug)
+			.setFooter("https://github.com/inxaneninja/inxanebot");
+		message.channel.send(randomSmug);
+		return;
 	}
 	const badCommand = new Discord.RichEmbed()
 		.setColor(embedColor)
