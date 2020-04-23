@@ -347,7 +347,7 @@ client.on("message", async message => {
 			.setFooter("https://github.com/inxaneninja/inxanebot");
 		message.channel.send(randomPoke);
 		return;
-	} else if (command === "poke") {
+	} else if (command === "smug") {
 		var smugGifs = ["https://tenor.com/view/smug-nikaido-saki-zombie-land-saga-nikaido-anime-gif-14210719",
 						"https://tenor.com/view/wataten-cute-smug-anime-gif-13940350",
 						"https://tenor.com/view/satania-anime-gif-10120660",
