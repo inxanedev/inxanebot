@@ -345,7 +345,7 @@ client.on("message", async message => {
 			.setTitle(`${message.author.tag} pokes ${message.mentions.members.first().user.tag}`)
 			.setImage(randomPoke)
 			.setFooter("https://github.com/inxaneninja/inxanebot");
-		message.channel.send(randomPoke);
+		message.channel.send(pokeEmbed);
 		return;
 	} else if (command === "smug") {
 		var smugGifs = ["https://tenor.com/view/smug-nikaido-saki-zombie-land-saga-nikaido-anime-gif-14210719",
@@ -364,7 +364,7 @@ client.on("message", async message => {
 			.setTitle(`${message.author.tag} smugs *-0`)
 			.setImage(randomSmug)
 			.setFooter("https://github.com/inxaneninja/inxanebot");
-		message.channel.send(randomSmug);
+		message.channel.send(smugEmbed);
 		return;
 	}
 	const badCommand = new Discord.RichEmbed()
