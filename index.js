@@ -356,7 +356,6 @@ client.on("message", async message => {
 		var smugGifs = ["https://media1.tenor.com/images/ca9adeb8e53c5fa7e3c705ea60df2f14/tenor.gif?itemid=15157933",
 						"https://thumbs.gfycat.com/TalkativePortlyEel-size_restricted.gif",
 						"https://i.pinimg.com/originals/70/cc/98/70cc98296034768f8eee9ad124827ba2.gif",
-						"https://66.media.tumblr.com/0cf5b8479cc687456e29e23287910445/tumblr_p1edjjqx7m1wn2b96o1_400.gifv",
 						"https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT32XuNAipPa6ALBc88FZTET-rPbsisrhtQovXijc48KGhF3UI2&usqp=CAU",
 						"https://media1.tenor.com/images/5067364ff9525612c0e6bbfc4233b2ba/tenor.gif?itemid=9780001",
 						"https://thumbs.gfycat.com/FirsthandShabbyLeopardseal-size_restricted.gif",
