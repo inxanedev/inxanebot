@@ -360,7 +360,6 @@ client.on("message", async message => {
 						"https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT32XuNAipPa6ALBc88FZTET-rPbsisrhtQovXijc48KGhF3UI2&usqp=CAU",
 						"https://media1.tenor.com/images/5067364ff9525612c0e6bbfc4233b2ba/tenor.gif?itemid=9780001",
 						"https://thumbs.gfycat.com/FirsthandShabbyLeopardseal-size_restricted.gif",
-						"https://steamuserimages-a.akamaihd.net/ugc/961971654928029472/0692AA323271A160ADEE03F5E00909F83C18EF1F/",
 						"https://thumbs.gfycat.com/GlaringSimplisticFinch-size_restricted.gif",
 						"https://pa1.narvii.com/6816/e097d58381f6f3dcc6eaf3326a132e3f339f17d9_hq.gif"];
 		var randomSmug = smugGifs[Math.round(Math.random() * (smugGifs.length-1))];
