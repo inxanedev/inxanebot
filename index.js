@@ -265,16 +265,16 @@ client.on("message", async message => {
 			sendError("Musisz zapingować osobę!");
 			return;
 		}
-		var kissGifs = ["https://giphy.com/gifs/sword-art-online-anime-kiss-nyGFcsP0kAobm",
-						"https://giphy.com/gifs/love-kiss-bm2O3nXTcKJeU",
-						"https://giphy.com/gifs/anime-couple-11rWoZNpAKw8w",
-						"https://giphy.com/gifs/love-kiss-CzCi6itPr3yBa",
-						"https://giphy.com/gifs/kiss-guilty-crown-XZYxeRlIEdmKI",
-						"https://tenor.com/view/golden-time-anime-kiss-couple-lovers-gif-6155670",
-						"https://tenor.com/view/anime-ano-natsu-de-matteru-gif-9670722",
-						"https://tenor.com/view/love-anime-kiss-nuzzle-cute-gif-12873196",
-						"https://tenor.com/view/anime-zero-kiss-couple-lover-gif-12925177",
-						"https://tenor.com/view/cheek-kiss-anime-cute-gif-15150255"];
+		var kissGifs = ["https://media1.tenor.com/images/c263375bf2b35ed931edf05c8694910d/tenor.gif?itemid=15111557",
+						"https://media.giphy.com/media/nyGFcsP0kAobm/giphy.gif",
+						"https://i.imgur.com/sGVgr74.gif",
+						"https://media.giphy.com/media/bm2O3nXTcKJeU/giphy.gif".
+						"https://media1.tenor.com/images/f03f245e14fdfcacaf06318cdc667a03/tenor.gif?itemid=15111568",
+						"https://cutewallpaper.org/21/yuri-anime-kiss/Yuri-kiss-GIFs-Get-the-best-GIF-on-GIPHY.gif",
+						"https://66.media.tumblr.com/5d51b3bbd64ccf1627dc87157a38e59f/tumblr_n5rfnvvj7H1t62gxao1_500.gif",
+						"https://thumbs.gfycat.com/FailingGrimyGar-size_restricted.gif",
+						"https://66.media.tumblr.com/f34fe7b01573743938f30c51d211227e/tumblr_oqgoupiCnF1slt45io1_500.gifv",
+						"https://cutewallpaper.org/21/anime-kiss-girl/Top-20-Most-Passionate-Anime-Kiss-Scenes-MyAnimeList.net.gif"];
 		var randomKiss = kissGifs[Math.round(Math.random() * (kissGifs.length-1))];
 		const kissEmbed = new Discord.RichEmbed()
 			.setColor(embedColor)
@@ -288,16 +288,16 @@ client.on("message", async message => {
 			sendError("Musisz zapingować osobę!");
 			return;
 		}
-		var hugGifs = [ "https://tenor.com/view/watashinitenshigamaiorita-anime-hug-wataten-gif-13366388",
-						"https://tenor.com/view/anime-hug-its-ok-gif-13041472",
-						"https://tenor.com/view/seraph-love-hug-hugging-anime-gif-4900166",
-						"https://tenor.com/view/anime-hug-love-hug-gif-13925386",
-						"https://tenor.com/view/anime-hug-sweet-love-gif-14246498",
-						"https://giphy.com/gifs/animated-girls-C4gbG94zAjyYE",
-						"https://giphy.com/gifs/hug-intense-noucome-pXQhWw2oHoPIs",
-						"https://giphy.com/gifs/hug-sleep-sleeping-BXrwTdoho6hkQ",
-						"https://giphy.com/gifs/love-sad-qscdhWs5o3yb6",
-						"https://giphy.com/gifs/PHZ7v9tfQu0o0"];
+		var hugGifs = [ "https://i.pinimg.com/originals/85/dc/ef/85dcef131af84b515106955e142df54e.gif",
+						"https://thumbs.gfycat.com/AlienatedUnawareArcherfish-size_restricted.gif",
+						"https://i.pinimg.com/originals/4d/89/d7/4d89d7f963b41a416ec8a55230dab31b.gif",
+						"https://i.imgur.com/r9aU2xv.gif",
+						"https://66.media.tumblr.com/680b69563aceba3df48b4483d007bce3/tumblr_mxre7hEX4h1sc1kfto1_500.gif",
+						"https://media.giphy.com/media/wnsgren9NtITS/giphy.gif",
+						"https://i.pinimg.com/originals/85/72/a1/8572a1d1ebaa45fae290e6760b59caac.gif",
+						"https://66.media.tumblr.com/f2a878657add13aa09a5e089378ec43d/tumblr_n5uovjOi931tp7433o1_500.gif",
+						"https://gifimage.net/wp-content/uploads/2018/10/anime-hug-gif-love-2.gif",
+						"https://i.imgur.com/XEs1SWQ.gif"];
 		var randomHug = hugGifs[Math.round(Math.random() * (hugGifs.length-1))];
 		const hugEmbed = new Discord.RichEmbed()
 			.setColor(embedColor)
@@ -311,16 +311,16 @@ client.on("message", async message => {
 			sendError("Musisz zapingować osobę!");
 			return;
 		}
-		var kickGifs = ["https://tenor.com/view/kick-funny-anime-fly-cartoon-gif-4922649",
-						"https://tenor.com/view/gajeel-lucy-fairy-tail-anime-kick-gif-16419384",
-						"https://tenor.com/view/anime-kick-fight-gif-15460532",
-						"https://tenor.com/view/sasuke-uchiha-kakashi-hatake-fight-anime-kick-gif-16767285",
-						"https://tenor.com/view/gintama-anime-kick-gif-10584236https://tenor.com/view/gintama-anime-kick-gif-10584236",
-						"https://tenor.com/view/anime-kick-naruto-gif-12822445",
-						"https://tenor.com/view/kick-anime-kick-balls-explode-crushed-gif-15974215",
-						"https://tenor.com/view/pandora-hearts-anime-kick-mad-angry-gif-5738223",
-						"https://tenor.com/view/jormungand-anime-koko-hekmatyar-kick-gif-15958808",
-						"https://tenor.com/view/maria-osawa-canaan-428the-animation-428shibuya-scramble-alphard-al-sheya-gif-16939795"];
+		var kickGifs = ["https://i.pinimg.com/originals/03/f2/1c/03f21c53485d52c1f2f6401a6189f479.gif",
+						"https://media.giphy.com/media/wOly8pa4s4W88/giphy.gif",
+						"https://media.giphy.com/media/u2LJ0n4lx6jF6/giphy.gif",
+						"https://media1.tenor.com/images/d4bd24c980e46c66f67077aff59f0565/tenor.gif?itemid=13098645",
+						"https://thumbs.gfycat.com/DistantKindlyEarwig-size_restricted.gif",
+						"https://vignette.wikia.nocookie.net/godsgods/images/0/03/Kale_lssj_9.gif/revision/latest?cb=20191202215935&path-prefix=pt-br",
+						"https://i.gifer.com/C6Of.gif",
+						"https://data.whicdn.com/images/318687183/original.gif",
+						"https://2.bp.blogspot.com/-58a9DDQ9bfc/WIZzChNFw0I/AAAAAAAAt5s/yIHCOiaFWngmaV7Uw27XeHdApdxVaz4jwCPcB/s1600/Omake%2BGif%2BAnime%2B-%2BGabriel%2BDropOut%2B-%2BEpisode%2B3%2B-%2BGab%2BKicks%2BSatania.gif",
+						"https://66.media.tumblr.com/ceb700b9939c52a73a4566791811d1be/tumblr_n8ietuNUQq1tg3a8ao1_500.gif"];
 		var randomKick = kickGifs[Math.round(Math.random() * (kickGifs.length-1))];
 		const kickEmbed = new Discord.RichEmbed()
 			.setColor(embedColor)
@@ -334,16 +334,16 @@ client.on("message", async message => {
 			sendError("Musisz zapingować osobę!");
 			return;
 		}
-		var pokeGifs = ["https://tenor.com/view/anime-poke-wake-up-gif-12396068",
-						"https://tenor.com/view/bite-anime-poke-gif-12045584",
-						"https://tenor.com/view/anime-poke-kobayashi-dragon-maid-gif-14346763",
-						"https://tenor.com/view/anime-poke-poke-face-gif-12011027",
-						"https://tenor.com/view/boop-nose-anime-gif-6287077",
-						"https://tenor.com/view/fight-anime-poke-ouch-gif-11956062",
-						"https://tenor.com/view/testament-of-sister-new-devil-shinmai-maou-no-testament-basara-anime-poke-gif-13054528",
-						"https://tenor.com/view/poke-annoying-gif-8488169",
-						"https://tenor.com/view/poke-trick-hi-hello-annoy-gif-14134415",
-						"https://tenor.com/view/anime-fuko-ibuki-clannad-hey-you-gif-14835795"];
+		var pokeGifs = ["https://media1.tenor.com/images/1a64ac660387543c5b779ba1d7da2c9e/tenor.gif?itemid=12396068",
+						"https://i.gifer.com/SKql.gif",
+						"https://i.imgur.com/It4Mk9z.gif",
+						"https://gifimage.net/wp-content/uploads/2017/09/anime-poke-gif-4.gif",
+						"https://gifimage.net/wp-content/uploads/2017/09/anime-poke-gif-9.gif",
+						"https://media1.tenor.com/images/3b9cffb5b30236f678fdccf442006a43/tenor.gif?itemid=7739077",
+						"https://thumbs.gfycat.com/EnlightenedInferiorAfricanaugurbuzzard-size_restricted.gif",
+						"https://media.giphy.com/media/pWd3gD577gOqs/giphy.gif",
+						"https://66.media.tumblr.com/0809478d6759a0a4b431755026f677a0/tumblr_ntpfvoxeoz1u03j02o1_500.gif",
+						"https://i.imgur.com/0NiK25x.gif"];
 		var randomPoke = pokeGifs[Math.round(Math.random() * (pokeGifs.length-1))];
 		const pokeEmbed = new Discord.RichEmbed()
 			.setColor(embedColor)
@@ -353,16 +353,16 @@ client.on("message", async message => {
 		message.channel.send(pokeEmbed);
 		return;
 	} else if (command === "smug") {
-		var smugGifs = ["https://tenor.com/view/smug-nikaido-saki-zombie-land-saga-nikaido-anime-gif-14210719",
-						"https://tenor.com/view/wataten-cute-smug-anime-gif-13940350",
-						"https://tenor.com/view/satania-anime-gif-10120660",
-						"https://tenor.com/view/smug-anime-face-blushing-gif-14495461",
-						"https://tenor.com/view/smug-anime-face-gif-13598614",
-						"https://tenor.com/view/anime-konosuba-smirk-aqua-gif-13820031",
-						"https://tenor.com/view/haikyuu-kei-smug-smirk-huh-gif-4990978",
-						"https://tenor.com/view/smug-overlord-anime-sinister-smile-gif-14770509",
-						"https://tenor.com/view/shrug-smug-smile-miss-kobayashi-kobayashisan-chi-no-maid-dragon-gif-13119038",
-						"https://tenor.com/view/anime-eyebrow-looky-whoa-mama-gif-10358099"];
+		var smugGifs = ["https://media1.tenor.com/images/ca9adeb8e53c5fa7e3c705ea60df2f14/tenor.gif?itemid=15157933",
+						"https://thumbs.gfycat.com/TalkativePortlyEel-size_restricted.gif",
+						"https://i.pinimg.com/originals/70/cc/98/70cc98296034768f8eee9ad124827ba2.gif",
+						"https://66.media.tumblr.com/0cf5b8479cc687456e29e23287910445/tumblr_p1edjjqx7m1wn2b96o1_400.gifv",
+						"https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT32XuNAipPa6ALBc88FZTET-rPbsisrhtQovXijc48KGhF3UI2&usqp=CAU",
+						"https://media1.tenor.com/images/5067364ff9525612c0e6bbfc4233b2ba/tenor.gif?itemid=9780001",
+						"https://thumbs.gfycat.com/FirsthandShabbyLeopardseal-size_restricted.gif",
+						"https://steamuserimages-a.akamaihd.net/ugc/961971654928029472/0692AA323271A160ADEE03F5E00909F83C18EF1F/",
+						"https://thumbs.gfycat.com/GlaringSimplisticFinch-size_restricted.gif",
+						"https://pa1.narvii.com/6816/e097d58381f6f3dcc6eaf3326a132e3f339f17d9_hq.gif"];
 		var randomSmug = smugGifs[Math.round(Math.random() * (smugGifs.length-1))];
 		const smugEmbed = new Discord.RichEmbed()
 			.setColor(embedColor)
