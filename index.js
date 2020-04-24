@@ -316,7 +316,6 @@ client.on("message", async message => {
 						"https://media.giphy.com/media/u2LJ0n4lx6jF6/giphy.gif",
 						"https://media1.tenor.com/images/d4bd24c980e46c66f67077aff59f0565/tenor.gif?itemid=13098645",
 						"https://thumbs.gfycat.com/DistantKindlyEarwig-size_restricted.gif",
-						"https://vignette.wikia.nocookie.net/godsgods/images/0/03/Kale_lssj_9.gif/revision/latest?cb=20191202215935&path-prefix=pt-br",
 						"https://i.gifer.com/C6Of.gif",
 						"https://data.whicdn.com/images/318687183/original.gif",
 						"https://2.bp.blogspot.com/-58a9DDQ9bfc/WIZzChNFw0I/AAAAAAAAt5s/yIHCOiaFWngmaV7Uw27XeHdApdxVaz4jwCPcB/s1600/Omake%2BGif%2BAnime%2B-%2BGabriel%2BDropOut%2B-%2BEpisode%2B3%2B-%2BGab%2BKicks%2BSatania.gif",
