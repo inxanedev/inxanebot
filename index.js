@@ -359,7 +359,9 @@ client.on("message", async message => {
 						"https://media1.tenor.com/images/5067364ff9525612c0e6bbfc4233b2ba/tenor.gif?itemid=9780001",
 						"https://thumbs.gfycat.com/FirsthandShabbyLeopardseal-size_restricted.gif",
 						"https://thumbs.gfycat.com/GlaringSimplisticFinch-size_restricted.gif",
-						"https://pa1.narvii.com/6816/e097d58381f6f3dcc6eaf3326a132e3f339f17d9_hq.gif"];
+						"https://pa1.narvii.com/6816/e097d58381f6f3dcc6eaf3326a132e3f339f17d9_hq.gif",
+						"https://i.kym-cdn.com/photos/images/newsfeed/000/522/656/3c7.gif",
+						"https://pa1.narvii.com/6292/ace0c38d8a5afaddacc024e229db2210ec93b5d6_00.gif"];
 		var randomSmug = smugGifs[Math.round(Math.random() * (smugGifs.length-1))];
 		const smugEmbed = new Discord.RichEmbed()
 			.setColor(embedColor)
