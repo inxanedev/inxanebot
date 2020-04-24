@@ -268,7 +268,7 @@ client.on("message", async message => {
 		var kissGifs = ["https://media1.tenor.com/images/c263375bf2b35ed931edf05c8694910d/tenor.gif?itemid=15111557",
 						"https://media.giphy.com/media/nyGFcsP0kAobm/giphy.gif",
 						"https://i.imgur.com/sGVgr74.gif",
-						"https://media.giphy.com/media/bm2O3nXTcKJeU/giphy.gif".
+						"https://media.giphy.com/media/bm2O3nXTcKJeU/giphy.gif",
 						"https://media1.tenor.com/images/f03f245e14fdfcacaf06318cdc667a03/tenor.gif?itemid=15111568",
 						"https://cutewallpaper.org/21/yuri-anime-kiss/Yuri-kiss-GIFs-Get-the-best-GIF-on-GIPHY.gif",
 						"https://66.media.tumblr.com/5d51b3bbd64ccf1627dc87157a38e59f/tumblr_n5rfnvvj7H1t62gxao1_500.gif",
