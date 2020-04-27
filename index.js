@@ -185,7 +185,7 @@ client.on("message", async message => {
 			sendError(message.channel, "Musisz zapingować osobę!");
 			return;
 		}
-		var patGifs = ["https://thumbs.gfycat.com/SaltySpitefulIrishdraughthorse-small.gif",
+		var gifs = ["https://thumbs.gfycat.com/SaltySpitefulIrishdraughthorse-small.gif",
 					   "https://thumbs.gfycat.com/LightOilyIraniangroundjay-size_restricted.gif",
 					   "https://i.pinimg.com/originals/2e/27/d5/2e27d5d124bc2a62ddeb5dc9e7a73dd8.gif",
 					   "https://gifimage.net/wp-content/uploads/2017/09/anime-head-pat-gif-4.gif",
@@ -196,13 +196,13 @@ client.on("message", async message => {
 					   "https://media1.tenor.com/images/291ea37382e1d6cd33349c50a398b6b9/tenor.gif?itemid=10204936",
 					   "https://i.imgur.com/bDMMk0L.gif",
 					   "https://i.imgur.com/sLwoifL.gif"];
-		var randomPat = patGifs[Math.round(Math.random() * (patGifs.length-1))];
-		const patEmbed = new Discord.RichEmbed()
+		var randomGif = gifs[Math.round(Math.random() * (gifs.length-1))];
+		const gifEmbed = new Discord.RichEmbed()
 			.setColor(embedColor)
 			.setTitle(`${message.author.tag} pats ${message.mentions.members.first().user.tag}`)
-			.setImage(randomPat)
+			.setImage(randomGif)
 			.setFooter("https://github.com/inxaneninja/inxanebot");
-		message.channel.send(patEmbed);
+		message.channel.send(gifEmbed);
 		return;
 	} else if (command == "avatar") {
 		if (message.mentions.members.first() == undefined) {
@@ -264,7 +264,7 @@ client.on("message", async message => {
 			sendError(message.channel, "Musisz zapingować osobę!");
 			return;
 		}
-		var kissGifs = ["https://media1.tenor.com/images/c263375bf2b35ed931edf05c8694910d/tenor.gif?itemid=15111557",
+		var gifs = ["https://media1.tenor.com/images/c263375bf2b35ed931edf05c8694910d/tenor.gif?itemid=15111557",
 						"https://media.giphy.com/media/nyGFcsP0kAobm/giphy.gif",
 						"https://i.imgur.com/sGVgr74.gif",
 						"https://media.giphy.com/media/bm2O3nXTcKJeU/giphy.gif",
@@ -273,20 +273,20 @@ client.on("message", async message => {
 						"https://66.media.tumblr.com/5d51b3bbd64ccf1627dc87157a38e59f/tumblr_n5rfnvvj7H1t62gxao1_500.gif",
 						"https://thumbs.gfycat.com/FailingGrimyGar-size_restricted.gif",
 						"https://cutewallpaper.org/21/anime-kiss-girl/Top-20-Most-Passionate-Anime-Kiss-Scenes-MyAnimeList.net.gif"];
-		var randomKiss = kissGifs[Math.round(Math.random() * (kissGifs.length-1))];
-		const kissEmbed = new Discord.RichEmbed()
+		var randomGif = gifs[Math.round(Math.random() * (gifs.length-1))];
+		const gifEmbed = new Discord.RichEmbed()
 			.setColor(embedColor)
 			.setTitle(`${message.author.tag} kisses ${message.mentions.members.first().user.tag}`)
-			.setImage(randomKiss)
+			.setImage(randomGif)
 			.setFooter("https://github.com/inxaneninja/inxanebot");
-		message.channel.send(kissEmbed);
+		message.channel.send(gifEmbed);
 		return;
 	} else if (command == "hug") {
 		if (message.mentions.members.first() == undefined) {
 			sendError(message.channel, "Musisz zapingować osobę!");
 			return;
 		}
-		var hugGifs = [ "https://i.pinimg.com/originals/85/dc/ef/85dcef131af84b515106955e142df54e.gif",
+		var gifs = [ "https://i.pinimg.com/originals/85/dc/ef/85dcef131af84b515106955e142df54e.gif",
 						"https://thumbs.gfycat.com/AlienatedUnawareArcherfish-size_restricted.gif",
 						"https://i.pinimg.com/originals/4d/89/d7/4d89d7f963b41a416ec8a55230dab31b.gif",
 						"https://i.imgur.com/r9aU2xv.gif",
@@ -296,20 +296,20 @@ client.on("message", async message => {
 						"https://66.media.tumblr.com/f2a878657add13aa09a5e089378ec43d/tumblr_n5uovjOi931tp7433o1_500.gif",
 						"https://gifimage.net/wp-content/uploads/2018/10/anime-hug-gif-love-2.gif",
 						"https://i.imgur.com/XEs1SWQ.gif"];
-		var randomHug = hugGifs[Math.round(Math.random() * (hugGifs.length-1))];
-		const hugEmbed = new Discord.RichEmbed()
+		var randomGif = gifs[Math.round(Math.random() * (gifs.length-1))];
+		const gifEmbed = new Discord.RichEmbed()
 			.setColor(embedColor)
 			.setTitle(`${message.author.tag} hugs ${message.mentions.members.first().user.tag}`)
-			.setImage(randomHug)
+			.setImage(randomGif)
 			.setFooter("https://github.com/inxaneninja/inxanebot");
-		message.channel.send(hugEmbed);
+		message.channel.send(gifEmbed);
 		return;
 	} else if (command == "kick") {
 		if (message.mentions.members.first() == undefined) {
 			sendError(message.channel, "Musisz zapingować osobę!");
 			return;
 		}
-		var kickGifs = ["https://i.pinimg.com/originals/03/f2/1c/03f21c53485d52c1f2f6401a6189f479.gif",
+		var gifs = ["https://i.pinimg.com/originals/03/f2/1c/03f21c53485d52c1f2f6401a6189f479.gif",
 						"https://media.giphy.com/media/wOly8pa4s4W88/giphy.gif",
 						"https://media.giphy.com/media/u2LJ0n4lx6jF6/giphy.gif",
 						"https://media1.tenor.com/images/d4bd24c980e46c66f67077aff59f0565/tenor.gif?itemid=13098645",
@@ -318,20 +318,20 @@ client.on("message", async message => {
 						"https://data.whicdn.com/images/318687183/original.gif",
 						"https://2.bp.blogspot.com/-58a9DDQ9bfc/WIZzChNFw0I/AAAAAAAAt5s/yIHCOiaFWngmaV7Uw27XeHdApdxVaz4jwCPcB/s1600/Omake%2BGif%2BAnime%2B-%2BGabriel%2BDropOut%2B-%2BEpisode%2B3%2B-%2BGab%2BKicks%2BSatania.gif",
 						"https://66.media.tumblr.com/ceb700b9939c52a73a4566791811d1be/tumblr_n8ietuNUQq1tg3a8ao1_500.gif"];
-		var randomKick = kickGifs[Math.round(Math.random() * (kickGifs.length-1))];
-		const kickEmbed = new Discord.RichEmbed()
+		var randomGif = gifs[Math.round(Math.random() * (gifs.length-1))];
+		const gifEmbed = new Discord.RichEmbed()
 			.setColor(embedColor)
 			.setTitle(`${message.author.tag} kicks ${message.mentions.members.first().user.tag}`)
-			.setImage(randomKick)
+			.setImage(randomGif)
 			.setFooter("https://github.com/inxaneninja/inxanebot");
-		message.channel.send(kickEmbed);
+		message.channel.send(gifEmbed);
 		return;
 	} else if (command == "poke") {
 		if (message.mentions.members.first() == undefined) {
 			sendError(message.channel, "Musisz zapingować osobę!");
 			return;
 		}
-		var pokeGifs = ["https://media1.tenor.com/images/1a64ac660387543c5b779ba1d7da2c9e/tenor.gif?itemid=12396068",
+		var gifs = ["https://media1.tenor.com/images/1a64ac660387543c5b779ba1d7da2c9e/tenor.gif?itemid=12396068",
 						"https://i.gifer.com/SKql.gif",
 						"https://i.imgur.com/It4Mk9z.gif",
 						"https://gifimage.net/wp-content/uploads/2017/09/anime-poke-gif-4.gif",
@@ -341,16 +341,16 @@ client.on("message", async message => {
 						"https://media.giphy.com/media/pWd3gD577gOqs/giphy.gif",
 						"https://66.media.tumblr.com/0809478d6759a0a4b431755026f677a0/tumblr_ntpfvoxeoz1u03j02o1_500.gif",
 						"https://i.imgur.com/0NiK25x.gif"];
-		var randomPoke = pokeGifs[Math.round(Math.random() * (pokeGifs.length-1))];
-		const pokeEmbed = new Discord.RichEmbed()
+		var randomGif = gifs[Math.round(Math.random() * (gifs.length-1))];
+		const gifEmbed = new Discord.RichEmbed()
 			.setColor(embedColor)
 			.setTitle(`${message.author.tag} pokes ${message.mentions.members.first().user.tag}`)
-			.setImage(randomPoke)
+			.setImage(randomGif)
 			.setFooter("https://github.com/inxaneninja/inxanebot");
-		message.channel.send(pokeEmbed);
+		message.channel.send(gifEmbed);
 		return;
 	} else if (command == "smug") {
-		var smugGifs = ["https://media1.tenor.com/images/ca9adeb8e53c5fa7e3c705ea60df2f14/tenor.gif?itemid=15157933",
+		var gifs = ["https://media1.tenor.com/images/ca9adeb8e53c5fa7e3c705ea60df2f14/tenor.gif?itemid=15157933",
 						"https://thumbs.gfycat.com/TalkativePortlyEel-size_restricted.gif",
 						"https://i.pinimg.com/originals/70/cc/98/70cc98296034768f8eee9ad124827ba2.gif",
 						"https://media1.tenor.com/images/5067364ff9525612c0e6bbfc4233b2ba/tenor.gif?itemid=9780001",
@@ -359,45 +359,45 @@ client.on("message", async message => {
 						"https://pa1.narvii.com/6816/e097d58381f6f3dcc6eaf3326a132e3f339f17d9_hq.gif",
 						"https://i.kym-cdn.com/photos/images/newsfeed/000/522/656/3c7.gif",
 						"https://pa1.narvii.com/6292/ace0c38d8a5afaddacc024e229db2210ec93b5d6_00.gif"];
-		var randomSmug = smugGifs[Math.round(Math.random() * (smugGifs.length-1))];
-		const smugEmbed = new Discord.RichEmbed()
+		var randomGif = gifs[Math.round(Math.random() * (gifs.length-1))];
+		const gifEmbed = new Discord.RichEmbed()
 			.setColor(embedColor)
-			.setTitle(`${message.author.tag} smugs *-0`)
-			.setImage(randomSmug)
+			.setTitle(`${message.author.tag} smugs uwu`)
+			.setImage(randomGif)
 			.setFooter("https://github.com/inxaneninja/inxanebot");
-		message.channel.send(smugEmbed);
+		message.channel.send(gifEmbed);
 		return;
 	} else if (command == "deathnote") {
 		if (message.mentions.members.first() == undefined) {
 			sendError(message.channel, "Musisz zapingować osobę!");
 			return;
 		}
-		const deathNoteEmbed = new Discord.RichEmbed()
+		const gifEmbed = new Discord.RichEmbed()
 			.setColor(embedColor)
 			.setTitle(`${message.author.tag} writes ${message.mentions.members.first().user.tag}'s name in the death note!`)
 			.setImage("https://thumbs.gfycat.com/HarmlessClumsyJohndory-size_restricted.gif")
 			.setFooter("https://github.com/inxaneninja/inxanebot");
-		message.channel.send(deathNoteEmbed);
+		message.channel.send(gifEmbed);
 		return;
 	} else if (command == "kill") {
 		if (message.mentions.members.first() == undefined) {
 			sendError(message.channel, "Musisz zapingować osobę!");
 			return;
 		}
-		var killGifs = ["https://media1.tenor.com/images/46051e203deaefc5642916c1eafa54a7/tenor.gif?itemid=3660367",
+		var gifs = ["https://media1.tenor.com/images/46051e203deaefc5642916c1eafa54a7/tenor.gif?itemid=3660367",
 						"https://media1.tenor.com/images/f84b0d69cf0a5adee4f2a261f4fb4dee/tenor.gif?itemid=8662749",
 						"https://thumbs.gfycat.com/ClassicSpectacularDoe-small.gif",
 						"https://i.pinimg.com/originals/fc/94/d2/fc94d27983c256f2d77e4b9f7bf4c857.gif",
 						"https://24.media.tumblr.com/8d7c4830a9b756340dd8cd6ce6f010a7/tumblr_mqz1brT26S1sv9dq6o1_500.gif",
 						"https://pa1.narvii.com/5698/2a90fee66370cb5b5fd7cd9e11c68bc3214059fd_hq.gif",
 						"https://i.gifer.com/Ni7m.gif"];
-		var randomKill = killGifs[Math.round(Math.random() * (killGifs.length-1))];
-		const killEmbed = new Discord.RichEmbed()
+		var randomGif = gifs[Math.round(Math.random() * (gifs.length-1))];
+		const gifEmbed = new Discord.RichEmbed()
 			.setColor(embedColor)
 			.setTitle(`${message.author.tag} kills ${message.mentions.members.first().user.tag}`)
-			.setImage(randomKill)
+			.setImage(randomGif)
 			.setFooter("https://github.com/inxaneninja/inxanebot");
-		message.channel.send(killEmbed);
+		message.channel.send(gifEmbed);
 		return;
 	}
 
