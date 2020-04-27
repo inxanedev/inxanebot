@@ -2,6 +2,7 @@
 This repository contains the source code for the inxanebot, made for my school's class's discord server.
 ## Setup
 To setup the bot, you need to create a `.env` file in the project's root directory, and write one line to it, which looks like this:
+
     BOT_TOKEN="<your bot's token here>"
 Naturally, my bot token is not on the public repository, because it'd allow you to impersonate my bot. Hence it's included in the .gitignore.
 
