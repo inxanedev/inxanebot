@@ -4,11 +4,7 @@ const client = new Discord.Client();
 const config = require("./config.json");
 const embedColor = config.embedColor;
 function isBetween(hour, minute, targetHour, targetMinuteX, targetMinuteY) {
-	if (hour == targetHour && minute >= targetMinuteX && minute < targetMinuteY) {
-		return true;
-	} else {
-		return false;
-	}
+	return (hour == targetHour && minute >= targetMinuteX && minute < targetMinuteY);
 }
 function getLesson(day, hour, minute) {
 	switch (day) {
@@ -107,6 +103,7 @@ function sendError(channel, errorMessage) {
 		.setColor("#ff0000")
 		.setTitle("Hej! Cos tu nie gra!")
 		.addField("Error", errorMessage)
+		.addField("Myslisz ze to bug w bocie?", "Otworz nowy Problem na githubie z informacjami!")
 		.setFooter("https://github.com/inxaneninja/inxanebot");
 	channel.send(errorEmbed);
 }
@@ -127,7 +124,7 @@ client.on("message", async message => {
 			.setFooter("https://github.com/inxaneninja/inxanebot");
 		message.channel.send(lekcjaEmbed);
 		return;
-	} else if (command === "help") {
+	} else if (command == "help") {
 		const helpEmbed = new Discord.RichEmbed()
 			.setColor(embedColor)
 			.setTitle("Senpai-sama! C-chcesz zobaczyc moje komendy~?")
@@ -152,12 +149,12 @@ client.on("message", async message => {
 			.setFooter("https://github.com/inxaneninja/inxanebot");
 		message.author.send(commandsEmbed);
 		return;
-	} else if (command === "roll") {
+	} else if (command == "roll") {
 		if (args.length < 1) {
 			sendError(message.channel, "Hmm, musisz podac maksymalna liczbe!");
 			return;
 		}
-		if (!(parseInt(args[0]) > 0 && parseInt(args[0]) <= 1000000)) {
+		if (parseInt(args[0]) > 0 && parseInt(args[0]) > 1000000) {
 			sendError(message.channel, "Hmm, wpisz poprawna liczbe pomiedzy 1 a milion!");
 			return;
 		}
@@ -169,7 +166,7 @@ client.on("message", async message => {
 			.setFooter("https://github.com/inxaneninja/inxanebot");
 		message.channel.send(luckEmbed);
 		return;
-	} else if (command === "8ball") {
+	} else if (command == "8ball") {
 		var num = Math.round(Math.random() * 7);
 		var answers = ["Raczej tak!", "Napewno nie!", "Napewno tak!", "Nie mam zielonego pojecia!",
 			"Chyba tak, ale nie jestem pewna...", "Chyba nie, ale nie jestem pewna...", "Raczej nie!", "Zalezy..."];
@@ -181,7 +178,7 @@ client.on("message", async message => {
 			.setFooter("https://github.com/inxaneninja/inxanebot")
 		message.channel.send(ballEmbed);
 		return;
-	} else if (command === "pat") {
+	} else if (command == "pat") {
 		if (message.mentions.members.first() == undefined) {
 			sendError(message.channel, "Musisz zapingować osobę!");
 			return;
@@ -205,7 +202,7 @@ client.on("message", async message => {
 			.setFooter("https://github.com/inxaneninja/inxanebot");
 		message.channel.send(patEmbed);
 		return;
-	} else if (command === "avatar") {
+	} else if (command == "avatar") {
 		if (message.mentions.members.first() == undefined) {
 			sendError(message.channel, "Musisz zapingować osobę!");
 			return;
@@ -218,7 +215,7 @@ client.on("message", async message => {
 			.setFooter("https://github.com/inxaneninja/inxanebot");
 		message.channel.send(avatarEmbed);
 		return;
-	} else if (command === "penis") {
+	} else if (command == "penis") {
 		if (message.mentions.members.first() == undefined) {
 			sendError(message.channel, "Musisz zapingować osobę!");
 			return;
@@ -244,7 +241,7 @@ client.on("message", async message => {
 			.setFooter("https://github.com/inxaneninja/inxanebot");
 		message.channel.send(penisEmbed);
 		return;
-	} else if (command === "restart") {
+	} else if (command == "restart") {
 		if (message.author.id == config.ownerID) {
 			const restartEmbed = new Discord.RichEmbed()
 				.setColor(embedColor)
@@ -260,7 +257,7 @@ client.on("message", async message => {
 			sendError(message.channel, "Co ty probujesz zrobic co!? Co ty sobie myslisz!");
 			return;
 		}
-	} else if (command === "kiss") {
+	} else if (command == "kiss") {
 		if (message.mentions.members.first() == undefined) {
 			sendError("Musisz zapingować osobę!");
 			return;
@@ -283,7 +280,7 @@ client.on("message", async message => {
 			.setFooter("https://github.com/inxaneninja/inxanebot");
 		message.channel.send(kissEmbed);
 		return;
-	} else if (command === "hug") {
+	} else if (command == "hug") {
 		if (message.mentions.members.first() == undefined) {
 			sendError("Musisz zapingować osobę!");
 			return;
@@ -306,7 +303,7 @@ client.on("message", async message => {
 			.setFooter("https://github.com/inxaneninja/inxanebot");
 		message.channel.send(hugEmbed);
 		return;
-	} else if (command === "kick") {
+	} else if (command == "kick") {
 		if (message.mentions.members.first() == undefined) {
 			sendError("Musisz zapingować osobę!");
 			return;
@@ -328,7 +325,7 @@ client.on("message", async message => {
 			.setFooter("https://github.com/inxaneninja/inxanebot");
 		message.channel.send(kickEmbed);
 		return;
-	} else if (command === "poke") {
+	} else if (command == "poke") {
 		if (message.mentions.members.first() == undefined) {
 			sendError("Musisz zapingować osobę!");
 			return;
@@ -351,7 +348,7 @@ client.on("message", async message => {
 			.setFooter("https://github.com/inxaneninja/inxanebot");
 		message.channel.send(pokeEmbed);
 		return;
-	} else if (command === "smug") {
+	} else if (command == "smug") {
 		var smugGifs = ["https://media1.tenor.com/images/ca9adeb8e53c5fa7e3c705ea60df2f14/tenor.gif?itemid=15157933",
 						"https://thumbs.gfycat.com/TalkativePortlyEel-size_restricted.gif",
 						"https://i.pinimg.com/originals/70/cc/98/70cc98296034768f8eee9ad124827ba2.gif",
@@ -370,10 +367,13 @@ client.on("message", async message => {
 		message.channel.send(smugEmbed);
 		return;
 	}
+
 	const badCommand = new Discord.RichEmbed()
 		.setColor(embedColor)
 		.setTitle("Senpai... Sumimasen~!!!!!")
-		.addField("Nieznana komenda", "Przperaszam cię senpai, ale nie mam takiej komendy! :sad_face:");
+		.addField("Nieznana komenda", "Przperaszam cię senpai, ale nie mam takiej komendy! :sad_face:")
+		.addField("Myslisz ze to bug w bocie?", "Otworz nowy Problem na githubie z informacjami!")
+		.setFooter("https://github.com/inxaneninja/inxanebot");
 	message.channel.send(badCommand);
 	return;
 });
