@@ -109,7 +109,7 @@ function sendError(channel, errorMessage) {
 }
 client.on("message", async message => {
 	if (message.author.bot) return;
-	if (message.content.indexOf(config.prefix) !== 0) return;
+	if (message.content.indexOf(config.prefix) != 0) return;
 	const args = message.content.slice(config.prefix.length).trim().split(' ');
 	const command = args.shift().toLowerCase();
 	console.log(`${message.author.tag} -> ${message}`); //
@@ -145,7 +145,8 @@ client.on("message", async message => {
 				+ "\`+kiss @osoba\` - :anime_kiss:\n"
 				+ "\`+kick @osoba\` - :anime_kick:\n"
 				+ "\`+avatar @osoba\` - link do avataru osoby\n"
-				+ "\`+penis @osoba\` - pokazuje wielkosc penisa @osoby")
+				+ "\`+penis @osoba\` - pokazuje wielkosc penisa @osoby\n"
+				+ "\`+deathnote @osoba\` - zapisuje @osobe do death nota")
 			.setFooter("https://github.com/inxaneninja/inxanebot");
 		message.author.send(commandsEmbed);
 		return;
@@ -259,7 +260,7 @@ client.on("message", async message => {
 		}
 	} else if (command == "kiss") {
 		if (message.mentions.members.first() == undefined) {
-			sendError("Musisz zapingować osobę!");
+			sendError(message.channel, "Musisz zapingować osobę!");
 			return;
 		}
 		var kissGifs = ["https://media1.tenor.com/images/c263375bf2b35ed931edf05c8694910d/tenor.gif?itemid=15111557",
@@ -282,7 +283,7 @@ client.on("message", async message => {
 		return;
 	} else if (command == "hug") {
 		if (message.mentions.members.first() == undefined) {
-			sendError("Musisz zapingować osobę!");
+			sendError(message.channel, "Musisz zapingować osobę!");
 			return;
 		}
 		var hugGifs = [ "https://i.pinimg.com/originals/85/dc/ef/85dcef131af84b515106955e142df54e.gif",
@@ -305,7 +306,7 @@ client.on("message", async message => {
 		return;
 	} else if (command == "kick") {
 		if (message.mentions.members.first() == undefined) {
-			sendError("Musisz zapingować osobę!");
+			sendError(message.channel, "Musisz zapingować osobę!");
 			return;
 		}
 		var kickGifs = ["https://i.pinimg.com/originals/03/f2/1c/03f21c53485d52c1f2f6401a6189f479.gif",
@@ -327,7 +328,7 @@ client.on("message", async message => {
 		return;
 	} else if (command == "poke") {
 		if (message.mentions.members.first() == undefined) {
-			sendError("Musisz zapingować osobę!");
+			sendError(message.channel, "Musisz zapingować osobę!");
 			return;
 		}
 		var pokeGifs = ["https://media1.tenor.com/images/1a64ac660387543c5b779ba1d7da2c9e/tenor.gif?itemid=12396068",
@@ -365,6 +366,18 @@ client.on("message", async message => {
 			.setImage(randomSmug)
 			.setFooter("https://github.com/inxaneninja/inxanebot");
 		message.channel.send(smugEmbed);
+		return;
+	} else if (command == "deathnote") {
+		if (message.mentions.members.first() == undefined) {
+			sendError(message.channel, "Musisz zapingować osobę!");
+			return;
+		}
+		const deathNoteEmbed = new Discord.RichEmbed()
+			.setColor(embedColor)
+			.setTitle(`${message.author.tag} writes ${message.mentions.members.first().user.tag}'s name in the death note!`)
+			.setImage("https://thumbs.gfycat.com/HarmlessClumsyJohndory-size_restricted.gif")
+			.setFooter("https://github.com/inxaneninja/inxanebot");
+		message.channel.send(deathNoteEmbed);
 		return;
 	}
 
