@@ -272,7 +272,6 @@ client.on("message", async message => {
 						"https://cutewallpaper.org/21/yuri-anime-kiss/Yuri-kiss-GIFs-Get-the-best-GIF-on-GIPHY.gif",
 						"https://66.media.tumblr.com/5d51b3bbd64ccf1627dc87157a38e59f/tumblr_n5rfnvvj7H1t62gxao1_500.gif",
 						"https://thumbs.gfycat.com/FailingGrimyGar-size_restricted.gif",
-						"https://66.media.tumblr.com/f34fe7b01573743938f30c51d211227e/tumblr_oqgoupiCnF1slt45io1_500.gifv",
 						"https://cutewallpaper.org/21/anime-kiss-girl/Top-20-Most-Passionate-Anime-Kiss-Scenes-MyAnimeList.net.gif"];
 		var randomKiss = kissGifs[Math.round(Math.random() * (kissGifs.length-1))];
 		const kissEmbed = new Discord.RichEmbed()
@@ -388,7 +387,6 @@ client.on("message", async message => {
 		var killGifs = ["https://media1.tenor.com/images/46051e203deaefc5642916c1eafa54a7/tenor.gif?itemid=3660367",
 						"https://media1.tenor.com/images/f84b0d69cf0a5adee4f2a261f4fb4dee/tenor.gif?itemid=8662749",
 						"https://thumbs.gfycat.com/ClassicSpectacularDoe-small.gif",
-						"https://66.media.tumblr.com/d59914bb906544a23ce16861c18cb3dd/tumblr_nmlziriYw61ur67nco1_400.gifv",
 						"https://i.pinimg.com/originals/fc/94/d2/fc94d27983c256f2d77e4b9f7bf4c857.gif",
 						"https://24.media.tumblr.com/8d7c4830a9b756340dd8cd6ce6f010a7/tumblr_mqz1brT26S1sv9dq6o1_500.gif",
 						"https://pa1.narvii.com/5698/2a90fee66370cb5b5fd7cd9e11c68bc3214059fd_hq.gif",
