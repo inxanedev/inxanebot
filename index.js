@@ -2,10 +2,12 @@ require("dotenv").config();
 const Discord = require("discord.js");
 const client = new Discord.Client();
 const config = require("./config.json");
+const fs = require("fs");
 const embedColor = config.embedColor;
 function isBetween(hour, minute, targetHour, targetMinuteX, targetMinuteY) {
 	return (hour == targetHour && minute >= targetMinuteX && minute < targetMinuteY);
 }
+
 function getLesson(day, hour, minute) {
 	switch (day) {
 		case 0:
@@ -107,12 +109,35 @@ function sendError(channel, errorMessage) {
 		.setFooter("https://github.com/inxaneninja/inxanebot");
 	channel.send(errorEmbed);
 }
+function getPointsData() {
+	return JSON.parse(fs.readFileSync("./pointsdb.json"));
+}
+function writeUserPointsData(userID, points) {
+	var pointsData = getPointsData();
+	if (pointsData == -1) return;
+	pointsData[userID] = points;
+	fs.writeFileSync("./pointsdb.json", JSON.stringify(pointsData));
+}
+function getPoints(userID) {
+	var pointsData = getPointsData();
+	if (pointsData[userID] == undefined) {
+		pointsData[userID] = 0;
+	}
+	return pointsData[userID];
+}
+function addPoints(userID, pointsToAdd) {
+	writeUserPointsData(userID, getPoints(userID) + pointsToAdd);
+}
+function hasPremium(user) {
+	return user.roles.has(JSON.parse(fs.readFileSync("./shop.json"))["premium"].roleID);
+}
 client.on("message", async message => {
 	if (message.author.bot) return;
+	if (!message.content.startsWith("+")) addPoints(message.author.id, Math.round(Math.random() * 3));
 	if (message.content.indexOf(config.prefix) != 0) return;
 	const args = message.content.slice(config.prefix.length).trim().split(' ');
 	const command = args.shift().toLowerCase();
-	console.log(`${message.author.tag} -> ${message}`); //
+	console.log(`${message.author.tag} -> ${message}`);
 	if (command == "lekcja") {
 		var date = new Date();
 		var result = getLesson(date.getDay(), date.getHours(), date.getMinutes()).split('|');
@@ -147,7 +172,14 @@ client.on("message", async message => {
 				+ "\`+avatar @osoba\` - link do avataru osoby\n"
 				+ "\`+penis @osoba\` - pokazuje wielkosc penisa @osoby\n"
 				+ "\`+deathnote @osoba\` - zapisuje @osobe do death nota\n"
-			 	+ "\`+kill @osoba\` - zabija @osobe")
+			 	+ "\`+kill @osoba\` - zabija @osobe\n\n"
+			 	+ "KOMENDY DO PUNKTOW\n\n"
+			 	+ "\`+shop\` - wyswietla co jest w sklepie\n"
+			 	+ "\`+buy <przedmiot>\` - kup to co chcesz ze sklepu\n"
+			 	+ "\`+points\` - wyswietla ile masz punktow\n"
+			 	+ "\`+pay @osoba <ilosc>\` - dajesz osobie ilosc punktow\n"
+			 	+ "\`+coinflip <liczba>\` [PREMIUM] - jesli reszka to wygrywasz ilosc punktow")
+			.addField("inxanebot Premium", "Kup premium za pomocą +buy premium i odblokuj komendy!")
 			.setFooter("https://github.com/inxaneninja/inxanebot");
 		message.author.send(commandsEmbed);
 		return;
@@ -398,6 +430,122 @@ client.on("message", async message => {
 			.setImage(randomGif)
 			.setFooter("https://github.com/inxaneninja/inxanebot");
 		message.channel.send(gifEmbed);
+		return;
+	} else if (["bal", "balance", "points", "p", "b"].includes(command)) {
+		const balanceEmbed = new Discord.RichEmbed()
+			.setColor(embedColor)
+			.setTitle("Ilość punktów")
+			.setFooter("https://github.com/inxaneninja/inxanebot");
+		if (message.mentions.members.first() == undefined) {
+			balanceEmbed.addField("Twoje konto", "Twoje konto wynosi: " + getPoints(message.author.id));
+		} else {
+			balanceEmbed.addField(`Konto ${message.mentions.members.first().user.tag}`, `Konto ${message.mentions.members.first().user.tag}: ` + getPoints(message.mentions.members.first().id));
+		}
+		message.channel.send(balanceEmbed);
+		return;
+	} else if (command == "pay") {
+		if (message.mentions.members.first() == undefined) {
+			sendError(message.channel, "Musisz zapingować osobę!");
+			return;
+		}
+		if (args.length < 2) {
+			sendError(message.channel, "Musisz wpisać poprawną ilość punktów do oddania!");
+			return;
+		}
+		var amount = parseInt(args[1], 10);
+		if (amount < 10 || amount == null || isNaN(amount)) {
+			sendError(message.channel, "Wpisz ilość powyżej 10!");
+			return;
+		}
+		if (getPoints(message.author.id) < amount) {
+			sendError(message.channel, "Nie masz tyle punktów!");
+			return;
+		}
+		addPoints(message.mentions.members.first().id, amount);
+		addPoints(message.author.id, -amount);
+		const payEmbed = new Discord.RichEmbed()
+			.setColor(embedColor)
+			.setTitle("Transakcja zakończona!")
+			.addField("Pieniądze stracone!", `${message.author.tag} zapłacił ${message.mentions.members.first().user.tag} ${amount} punktów!`)
+			.addField(`Konto ${message.author.tag}`, `${getPoints(message.author.id)}`, true)
+			.addField(`Konto ${message.mentions.members.first().user.tag}`, `${getPoints(message.mentions.members.first().id)}`, true)
+			.setFooter("https://github.com/inxaneninja/inxanebot");
+		message.channel.send(payEmbed);
+		return;
+	} else if (command == "buy") {
+		if (args.length < 1) {
+			sendError(message.channel, "Musisz wybrać jakiś przedmiot! (+shop)");
+			return;
+		}
+		const shop = JSON.parse(fs.readFileSync("./shop.json"));
+		var queryItem = shop[args[0].toLowerCase()]
+		if (queryItem == undefined) {
+			sendError(message.channel, "Nie ma takiego przedmiotu! (+shop)");
+			return;
+		}
+		if (queryItem.price > getPoints(message.author.id)) {
+			sendError(message.channel, "Nie masz tyle pieniędzy!");
+			return;
+		}
+		if (message.member.roles.has(queryItem.roleID)) {
+			sendError(message.channel, "Juz posiadasz ten przedmiot!");
+			return;
+		}
+		addPoints(message.author.id, -queryItem.price);
+		message.member.addRole(message.guild.roles.get(queryItem.roleID));
+		const buyEmbed = new Discord.RichEmbed()
+			.setColor(embedColor)
+			.setTitle("Transakcja zakończona!")
+			.addField("Zakupiono przedmiot", `Brawo, ${message.author.tag}, kupiłeś przedmiot ${args[0]}!`)
+			.addField("Konto przed zakupem", `${getPoints(message.author.id) + queryItem.price}`, true)
+			.addField("Konto po zakupie", `${getPoints(message.author.id)}`, true)
+			.setFooter("https://github.com/inxaneninja/inxanebot");
+		message.channel.send(buyEmbed);
+		return;
+	} else if (command == "shop") {
+		const shop = JSON.parse(fs.readFileSync("./shop.json"));
+		const shopEmbed = new Discord.RichEmbed()
+			.setColor(embedColor)
+			.setTitle("Sklep inxanebot")
+			.setFooter("https://github.com/inxaneninja/inxanebot");
+		Object.keys(shop).forEach(item => {
+			shopEmbed.addField(`Przedmiot "${shop[item].displayName}" (+buy ${item})`, `Koszt: ${shop[item].price}\nOpis: ${shop[item].description}`);
+		});
+		message.channel.send(shopEmbed);
+		return;
+	} else if (["coinflip", "cf", "flip"].includes(command)) {
+		if (!hasPremium(message.member)) {
+			sendError(message.channel, "Ta komenda jest tylko dla posiadaczy premium! (+buy premium)");
+			return;
+		}
+		if (args.length < 1) {
+			sendError(message.channel, "Wpisz liczbe do zakladu!");
+			return;
+		}
+		var amount = parseInt(args[0]);
+		if (amount < 10 || amount == null || isNaN(amount)) {
+			sendError(message.channel, "Wpisz ilość powyżej 10!");
+			return;
+		}
+		var win = Math.round(Math.random());
+		if (win == 0) win = false;
+		if (win == 1) win = true;
+		var before = getPoints(message.author.id);
+		if (win) {
+			var fieldText = "Wygrałeś!";
+			addPoints(message.author.id, amount);
+		} else {
+			var fieldText = "Przegrałeś!";
+			addPoints(message.author.id, -amount);
+		}
+		const flipEmbed = new Discord.RichEmbed()
+			.setColor(embedColor)
+			.setTitle("Rzut monetą")
+			.addField(`Wynik zakładu o ${amount} punktów`, fieldText)
+			.addField("Konto przed zakładem", `${before}`, true)
+			.addField("Konto po zakładzie", `${getPoints(message.author.id)}`, true)
+			.setFooter("https://github.com/inxaneninja/inxanebot");
+		message.channel.send(flipEmbed);
 		return;
 	}
 

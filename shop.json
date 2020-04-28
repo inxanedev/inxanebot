@@ -1,0 +1,26 @@
+{
+	"exclusive": {
+		"price": 300,
+		"description": "Zloty nick, tts, chat tylko dla Exclusive, i wiecej!",
+		"roleID": "691756154287554571",
+		"displayName": "Exclusive"
+	},
+	"mvp": {
+		"price": 2000,
+		"description": "Dwie emotki na serwerze, prywatne giveawaye na punkty, i duzo duzo wiecej!",
+		"roleID": "696660344369840149",
+		"displayName": "MVP"
+	},
+	"premium": {
+		"price": 6000,
+		"description": "Dostęp do komend Premium w inxanebot!",
+		"roleID": "704607403949424740",
+		"displayName": "Premium"
+	},
+	"admin": {
+		"price": 20000,
+		"description": "Admin. Prosze nie kupujcie tego (i tak nie zdobedziecie tyle hajsu heh)",
+		"roleID": "694833309791813642",
+		"displayName": "Admin"
+	}
+}
