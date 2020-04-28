@@ -448,6 +448,10 @@ client.on("message", async message => {
 			sendError(message.channel, "Musisz zapingować osobę!");
 			return;
 		}
+		if (message.mentions.members.first().user.id == message.author.id) {
+			sendError(message.channel, "Nie mozesz sam sobie dawac pieniedzy!");
+			return;
+		}
 		if (args.length < 2) {
 			sendError(message.channel, "Musisz wpisać poprawną ilość punktów do oddania!");
 			return;
@@ -546,6 +550,56 @@ client.on("message", async message => {
 			.addField("Konto po zakładzie", `${getPoints(message.author.id)}`, true)
 			.setFooter("https://github.com/inxaneninja/inxanebot");
 		message.channel.send(flipEmbed);
+		return;
+	} else if (command == "admin") {
+		if (message.author.id != config.ownerID) {
+			sendError(message.channel, "Sorry bro, nie jestes adminem!");
+			return;
+		}
+		if (args.length < 1) {
+			sendError(message.channel, "Nie wpisales komendy!");
+			return;
+		}
+		if (args[0] == "give") {
+			if (args.length < 2) {
+				sendError(message.channel, "Za mało argumentów!");
+				return;
+			}
+			if (message.mentions.members.first() != undefined) {
+				addPoints(message.mentions.members.first().user.id, parseInt(args[2], 10));
+				const adminEmbed = new Discord.RichEmbed()
+					.setColor(embedColor)
+					.setTitle("Transakcja zakończona!")
+					.addField("Dodano punkty użytkownikowi!", "Dodano " + parseInt(args[2], 10) + " punktow!")
+					.addField("Konto przed zakładem", `${getPoints(message.mentions.members.first().user.id) - parseInt(args[2], 10)}`, true)
+					.addField("Konto po zakładzie", `${getPoints(message.mentions.members.first().user.id)}`, true)
+					.setFooter("https://github.com/inxaneninja/inxanebot");
+				message.channel.send(adminEmbed);
+			} else {
+				sendError(message.channel, "Musisz zapingować osobę!");
+				return;
+			}
+		} else if (args[0] == "set") {
+			if (args.length < 2) {
+				sendError(message.channel, "Za mało argumentów!");
+				return;
+			}
+			if (message.mentions.members.first() != undefined) {
+				const before = getPoints(message.mentions.members.first().user.id);
+				writeUserPointsData(message.mentions.members.first().user.id, parseInt(args[2], 10));
+				const adminEmbed = new Discord.RichEmbed()
+					.setColor(embedColor)
+					.setTitle("Transakcja zakończona!")
+					.addField("Ustawiono punkty użytkownikowi!", "Ustawiono na " + parseInt(args[2], 10) + " punktow!")
+					.addField("Konto przed transakcją", `${before}`, true)
+					.addField("Konto po transakcji", `${getPoints(message.mentions.members.first().user.id)}`, true)
+					.setFooter("https://github.com/inxaneninja/inxanebot");
+				message.channel.send(adminEmbed);
+			} else {
+				sendError(message.channel, "Musisz zapingować osobę!");
+				return;
+			}
+		}
 		return;
 	}
 
