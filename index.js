@@ -7,7 +7,6 @@ const embedColor = config.embedColor;
 function isBetween(hour, minute, targetHour, targetMinuteX, targetMinuteY) {
 	return (hour == targetHour && minute >= targetMinuteX && minute < targetMinuteY);
 }
-
 function getLesson(day, hour, minute) {
 	switch (day) {
 		case 0:
