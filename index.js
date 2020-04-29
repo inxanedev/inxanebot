@@ -132,7 +132,13 @@ function hasPremium(user) {
 }
 client.on("message", async message => {
 	if (message.author.bot) return;
-	if (!message.content.startsWith("+")) addPoints(message.author.id, Math.round(Math.random() * 3));
+	if (!message.content.startsWith("+")) {
+		if (!hasPremium(message.member)) {
+			addPoints(message.author.id, Math.round(Math.random() * 3));
+		} else {
+			addPoints(message.author.id, Math.round(Math.random() * 5));
+		}
+	}
 	if (message.content.indexOf(config.prefix) != 0) return;
 	const args = message.content.slice(config.prefix.length).trim().split(' ');
 	const command = args.shift().toLowerCase();
