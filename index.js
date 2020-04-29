@@ -570,8 +570,8 @@ client.on("message", async message => {
 					.setColor(embedColor)
 					.setTitle("Transakcja zakończona!")
 					.addField("Dodano punkty użytkownikowi!", "Dodano " + parseInt(args[2], 10) + " punktow!")
-					.addField("Konto przed zakładem", `${getPoints(message.mentions.members.first().user.id) - parseInt(args[2], 10)}`, true)
-					.addField("Konto po zakładzie", `${getPoints(message.mentions.members.first().user.id)}`, true)
+					.addField("Konto przed transakcją", `${getPoints(message.mentions.members.first().user.id) - parseInt(args[2], 10)}`, true)
+					.addField("Konto po transakcji", `${getPoints(message.mentions.members.first().user.id)}`, true)
 					.setFooter("https://github.com/inxaneninja/inxanebot");
 				message.channel.send(adminEmbed);
 			} else {
